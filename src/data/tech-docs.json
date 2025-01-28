@@ -1,0 +1,13 @@
+{
+  "react": "https://reactjs.org/docs/getting-started.html",
+  "typescript": "https://www.typescriptlang.org/docs/",
+  "nextjs": "https://nextjs.org/docs",
+  "node": "https://nodejs.org/docs/latest/",
+  "express": "https://expressjs.com/",
+  "postgresql": "https://www.postgresql.org/docs/",
+  "python": "https://docs.python.org/",
+  "flask": "https://flask.palletsprojects.com/",
+  "docker": "https://docs.docker.com/",
+  "supabase": "https://supabase.com/docs",
+  "metamask": "https://docs.metamask.io/"
+} 
