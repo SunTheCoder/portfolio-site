@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const GITHUB_USERNAME = 'sunspla-sh';
+const GITHUB_USERNAME = 'sunthecoder';
 
 interface GitHubEvent {
   id: string;
@@ -50,7 +50,7 @@ export async function GET() {
     console.log('Fetched events:', events.length);
     
     // Format the events into readable activity items
-    const activities = events.slice(0, 5).map(event => {
+    const activities = events.slice(0, 3).map(event => {
       let description = '';
       
       switch (event.type) {
