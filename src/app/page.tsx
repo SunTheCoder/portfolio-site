@@ -4,6 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
+import Projects from '@/components/Projects';
 
 export default function Home() {
   return (
@@ -11,9 +12,9 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-4xl">
         {/* Introduction Section */}
         <section className="w-full text-center sm:text-left mb-12">
-          <h1 className="text-4xl font-bold mb-4">Hi, I'm Sun 👋</h1>
+          <h1 className="text-4xl font-bold mb-4">Hi, I&apos;m Sun 👋</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-            Welcome to my portfolio! I'm a passionate developer interested in creating meaningful digital experiences.
+            Welcome to my portfolio! I&apos;m a passionate developer interested in creating meaningful digital experiences.
           </p>
         </section>
 
@@ -47,7 +48,7 @@ export default function Home() {
               }}
             >
               <Popup>
-                Sun's favorite spot to heal
+                Sun&apos;s favorite spot to heal
               </Popup>
             </Marker>
             <Marker 
@@ -58,10 +59,15 @@ export default function Home() {
               }}
             >
               <Popup>
-                Sun's favorite spot to walk
+                Sun&apos;s favorite spot to walk
               </Popup>
             </Marker>
           </MapContainer>
+        </section>
+
+        <section className="w-full mb-12">
+          <h2 className="text-3xl font-bold mb-6">My Projects</h2>
+          <Projects />
         </section>
 
         <Image
