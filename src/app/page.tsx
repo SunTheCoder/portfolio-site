@@ -1,10 +1,18 @@
 'use client';  // Need this for react-leaflet to work
 import Image from "next/image";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import 'leaflet-defaulticon-compatibility';
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
+import dynamic from 'next/dynamic';
 import Projects from '@/components/Projects';
+
+// Dynamically import the Map component with no SSR
+const MapWithNoSSR = dynamic(
+  () => import('@/components/Map'),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[400px] bg-gray-100 animate-pulse rounded-lg" />
+    ),
+  }
+);
 
 export default function Home() {
   return (
@@ -20,49 +28,7 @@ export default function Home() {
 
         {/* Map Section */}
         <section className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg mb-12">
-          <MapContainer
-            center={[37.5407, -77.4360]} // Richmond, VA coordinates
-            zoom={13}
-            style={{ height: '100%', width: '100%' }}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-            <Marker 
-              position={[37.5407, -77.4360]}
-              eventHandlers={{
-                mouseover: (e) => e.target.openPopup(),
-                mouseout: (e) => e.target.closePopup(),
-              }}
-            >
-              <Popup>
-                Richmond, Virginia
-              </Popup>
-            </Marker>
-            <Marker 
-              position={[37.551413176698944, -77.4737886067466]}
-              eventHandlers={{
-                mouseover: (e) => e.target.openPopup(),
-                mouseout: (e) => e.target.closePopup(),
-              }}
-            >
-              <Popup>
-                Sun&apos;s favorite spot to heal
-              </Popup>
-            </Marker>
-            <Marker 
-              position={[37.529879, -77.444016]}
-              eventHandlers={{
-                mouseover: (e) => e.target.openPopup(),
-                mouseout: (e) => e.target.closePopup(),
-              }}
-            >
-              <Popup>
-                Sun&apos;s favorite spot to walk
-              </Popup>
-            </Marker>
-          </MapContainer>
+          <MapWithNoSSR />
         </section>
 
         <section className="w-full mb-12">
