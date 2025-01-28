@@ -7,6 +7,7 @@ import GitHubActivity from '@/components/GitHubActivity';
 import ContactForm from '@/components/ContactForm';
 import Modal from '@/components/Modal';
 import TechStack from '@/components/TechStack';
+import VideoModal from '@/components/VideoModal';
 
 // Dynamically import the Map component with no SSR
 const MapWithNoSSR = dynamic(
@@ -21,20 +22,27 @@ const MapWithNoSSR = dynamic(
 
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* Navigation */}
       <nav className="w-full max-w-6xl flex justify-between items-center">
-        <h1 className="text-4xl font-bold mb-4">
-          Hi, I&apos;m Sun 👋
-        </h1>
-        <button
-          onClick={() => setIsContactModalOpen(true)}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-        >
-          Contact Me
-        </button>
+        <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋</h1>
+        <div className="flex gap-4 items-center">
+          <button
+            onClick={() => setIsVideoModalOpen(true)}
+            className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+          >
+            Watch Intro ▶️
+          </button>
+          <button
+            onClick={() => setIsContactModalOpen(true)}
+            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            Contact Me
+          </button>
+        </div>
       </nav>
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-6xl">
@@ -77,6 +85,11 @@ export default function Home() {
       >
         <ContactForm onSuccess={() => setIsContactModalOpen(false)} />
       </Modal>
+
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+      />
 
       <footer className="row-start-3 w-full max-w-6xl space-y-8">
         <div>
