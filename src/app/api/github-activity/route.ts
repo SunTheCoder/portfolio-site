@@ -32,7 +32,7 @@ export async function GET() {
           'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
           'Accept': 'application/vnd.github.v3+json',
         },
-        next: { revalidate: 60 }
+        cache: 'no-store'
       }
     );
 
@@ -50,7 +50,7 @@ export async function GET() {
     console.log('Fetched events:', events.length);
     
     // Format the events into readable activity items
-    const activities = events.slice(0, 3).map(event => {
+    const activities = events.slice(0, 5).map(event => {
       let description = '';
       
       switch (event.type) {

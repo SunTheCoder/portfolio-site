@@ -9,9 +9,22 @@ export default function AdminPage() {
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
-    if (password === process.env.NEXT_PUBLIC_ADMIN_PASSWORD) {
-      setIsAuthenticated(true);
-      fetchMessages();
+    try {
+      const response = await fetch('/api/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+      const data = await response.json();
+      
+      if (data.success) {
+        setIsAuthenticated(true);
+        fetchMessages();
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
     }
   }
 
