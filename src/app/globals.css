@@ -29,3 +29,12 @@ body {
 .leaflet-default-shadow-path {
   background-image: url(https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png);
 }
+
+.leaflet-container {
+  z-index: 1;
+}
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  animation: none !important;
+}

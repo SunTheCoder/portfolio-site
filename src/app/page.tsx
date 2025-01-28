@@ -2,20 +2,10 @@
 import Image from "next/image";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useEffect } from 'react';
-import L from 'leaflet';
+import 'leaflet-defaulticon-compatibility';
+import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 
 export default function Home() {
-  // Fix Leaflet icon issues in Next.js
-  useEffect(() => {
-    delete (L.Icon.Default.prototype as any)._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'leaflet/marker-icon-2x.png',
-      iconUrl: 'leaflet/marker-icon.png',
-      shadowUrl: 'leaflet/marker-shadow.png',
-    });
-  }, []);
-
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-4xl">
@@ -38,9 +28,37 @@ export default function Home() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={[37.5407, -77.4360]}>
+            <Marker 
+              position={[37.5407, -77.4360]}
+              eventHandlers={{
+                mouseover: (e) => e.target.openPopup(),
+                mouseout: (e) => e.target.closePopup(),
+              }}
+            >
               <Popup>
                 Richmond, Virginia
+              </Popup>
+            </Marker>
+            <Marker 
+              position={[37.551413176698944, -77.4737886067466]}
+              eventHandlers={{
+                mouseover: (e) => e.target.openPopup(),
+                mouseout: (e) => e.target.closePopup(),
+              }}
+            >
+              <Popup>
+                Sun's favorite spot to heal
+              </Popup>
+            </Marker>
+            <Marker 
+              position={[37.529879, -77.444016]}
+              eventHandlers={{
+                mouseover: (e) => e.target.openPopup(),
+                mouseout: (e) => e.target.closePopup(),
+              }}
+            >
+              <Popup>
+                Sun's favorite spot to walk
               </Popup>
             </Marker>
           </MapContainer>
