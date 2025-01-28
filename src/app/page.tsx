@@ -1,9 +1,51 @@
+'use client';  // Need this for react-leaflet to work
 import Image from "next/image";
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import { useEffect } from 'react';
+import L from 'leaflet';
 
 export default function Home() {
+  // Fix Leaflet icon issues in Next.js
+  useEffect(() => {
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'leaflet/marker-icon-2x.png',
+      iconUrl: 'leaflet/marker-icon.png',
+      shadowUrl: 'leaflet/marker-shadow.png',
+    });
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-4xl">
+        {/* Introduction Section */}
+        <section className="w-full text-center sm:text-left mb-12">
+          <h1 className="text-4xl font-bold mb-4">Hi, I'm Sun 👋</h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+            Welcome to my portfolio! I'm a passionate developer interested in creating meaningful digital experiences.
+          </p>
+        </section>
+
+        {/* Map Section */}
+        <section className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg mb-12">
+          <MapContainer
+            center={[37.5407, -77.4360]} // Richmond, VA coordinates
+            zoom={13}
+            style={{ height: '100%', width: '100%' }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            <Marker position={[37.5407, -77.4360]}>
+              <Popup>
+                Richmond, Virginia
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </section>
+
         <Image
           className="dark:invert"
           src="/next.svg"
