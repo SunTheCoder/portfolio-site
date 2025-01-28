@@ -2,6 +2,7 @@
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 import Projects from '@/components/Projects';
+import GitHubActivity from '@/components/GitHubActivity';
 
 // Dynamically import the Map component with no SSR
 const MapWithNoSSR = dynamic(
@@ -34,6 +35,11 @@ export default function Home() {
         <section className="w-full mb-12">
           <h2 className="text-3xl font-bold mb-6">My Projects</h2>
           <Projects />
+        </section>
+
+        <section className="w-full mb-12">
+          <h2 className="text-3xl font-bold mb-6">Recent Activity</h2>
+          <GitHubActivity />
         </section>
 
         <Image
