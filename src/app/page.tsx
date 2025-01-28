@@ -62,7 +62,7 @@ export default function Home() {
 
             {/* Projects Section */}
             <section className="w-full">
-              <h2 className="text-3xl font-bold mb-6">My Projects</h2>
+              <h2 className="text-3xl font-bold mb-6">Portfolio</h2>
               <Projects />
             </section>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
           <div className="space-y-12">
             {/* GitHub Activity Section */}
             <section className="w-full">
-              <h2 className="text-2xl font-bold mb-4">Recent Activity</h2>
+              <h2 className="text-2xl font-bold mb-4">GitHub Activity</h2>
               <GitHubActivity />
             </section>
           </div>
