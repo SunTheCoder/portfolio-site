@@ -29,9 +29,9 @@ export default function Projects() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {projects.map((project) => (
         <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-          {project.image && (
+          {project.imageUrl && (
             <Image
-              src={project.image}
+              src={project.imageUrl}
               alt={project.name}
               width={500}
               height={300}
