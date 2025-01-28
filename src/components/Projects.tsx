@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import type { Project } from '@/app/api/projects/route';
+import Image from 'next/image';
 
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -28,11 +29,13 @@ export default function Projects() {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {projects.map((project) => (
         <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-          {project.imageUrl && (
-            <img 
-              src={project.imageUrl} 
-              alt={project.name} 
-              className="w-full h-48 object-cover rounded-lg mb-4"
+          {project.image && (
+            <Image
+              src={project.image}
+              alt={project.name}
+              width={500}
+              height={300}
+              className="w-full h-48 object-cover rounded-t-lg"
             />
           )}
           <h3 className="text-xl font-bold mb-2">{project.name}</h3>

@@ -9,11 +9,13 @@ export default function Map() {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    // Cleanup function
+    // Store ref value in a variable
+    const currentMap = mapRef.current;
+    
     return () => {
-      if (mapRef.current) {
-        // @ts-ignore
-        mapRef.current.remove();
+      if (currentMap) {
+        // @ts-expect-error - Leaflet types are not complete
+        currentMap.remove();
       }
     };
   }, []);
