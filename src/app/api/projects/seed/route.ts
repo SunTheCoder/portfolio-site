@@ -1,5 +1,5 @@
 import { kv } from '@vercel/kv';
-import { connection, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 const initialProjects = [
   {
