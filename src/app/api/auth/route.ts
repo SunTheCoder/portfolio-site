@@ -7,6 +7,7 @@ export async function POST(request: Request) {
     
     return NextResponse.json({ success: isValid });
   } catch (error) {
+    console.error('Authentication error:', error);
     return NextResponse.json({ success: false }, { status: 500 });
   }
 } 
