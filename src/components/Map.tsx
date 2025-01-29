@@ -25,12 +25,13 @@ export default function Map() {
   }
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full rounded-lg overflow-hidden">
       <MapContainer
         ref={mapRef}
         center={[37.5407, -77.4360]}
         zoom={13}
         style={{ height: '100%', width: '100%' }}
+        className="rounded-lg"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

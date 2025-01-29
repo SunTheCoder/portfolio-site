@@ -38,9 +38,10 @@ export default function Home() {
               priority
             />
           </div>
-          <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
-          <h2 className="text-2xl font-bold">Full Stack Developer residing in Richmond, Va</h2>
-
+          <div className="flex flex-col">
+            <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
+            <h4 className="text-md font-bold">Full Stack Developer residing in Richmond, Va</h4>
+          </div>
         </div>
         <div className="flex gap-4 items-center">
           <button
