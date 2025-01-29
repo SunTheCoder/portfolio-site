@@ -3,6 +3,25 @@ import { useState, useEffect } from 'react';
 import type { Project } from '@/app/api/projects/route';
 import Image from 'next/image';
 
+function ProjectSkeleton() {
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 animate-pulse">
+      <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 rounded-lg mb-4" />
+      <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4" />
+      <div className="space-y-2 mb-4">
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6" />
+        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/6" />
+      </div>
+      <div className="flex flex-wrap gap-2 mb-4">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-6 w-20 bg-gray-200 dark:bg-gray-700 rounded-full" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +42,15 @@ export default function Projects() {
     fetchProjects();
   }, []);
 
-  if (loading) return <div>Loading projects...</div>;
+  if (loading) {
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {[1, 2, 3, 4].map((i) => (
+          <ProjectSkeleton key={i} />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

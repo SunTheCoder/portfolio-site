@@ -9,6 +9,22 @@ interface Activity {
   type: string;
 }
 
+function ActivitySkeleton() {
+  return (
+    <div className="space-y-4 animate-pulse">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <div key={i} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+          <div className="flex justify-between items-center mb-2">
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-24" />
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-20" />
+          </div>
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function GitHubActivity() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,17 +36,13 @@ export default function GitHubActivity() {
         const response = await fetch('/api/github-activity');
         if (!response.ok) {
           const errorText = await response.text();
-          throw new Error(`API error: ${response.status} ${errorText}`);
+          throw new Error(errorText);
         }
         const data = await response.json();
-        if (data.error) {
-          throw new Error(data.error);
-        }
         setActivities(data);
-        setError(null);
       } catch (error) {
         console.error('Error fetching GitHub activity:', error);
-        setError(error instanceof Error ? error.message : 'Failed to load activity');
+        setError('Failed to load GitHub activity');
       } finally {
         setLoading(false);
       }
@@ -39,9 +51,8 @@ export default function GitHubActivity() {
     fetchActivity();
   }, []);
 
-  if (loading) return <div>Loading activity...</div>;
-  if (error) return <div className="text-red-500">Error: {error}</div>;
-  if (!activities.length) return <div>No recent activity</div>;
+  if (loading) return <ActivitySkeleton />;
+  if (error) return <div className="text-red-500">{error}</div>;
 
   return (
     <div className="space-y-4">
