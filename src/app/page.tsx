@@ -67,7 +67,7 @@ export default function Home() {
 
           {/* Tech Stack Section */}
           <div className="w-full">
-            <h2 className="text-xl font-bold mb-4">Technologies I Work With</h2>
+            <h2 className="text-2xl font-bold mb-4">Technologies I Work With</h2>
             <div className="bg-white/90 dark:bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg">
               <TechStack />
             </div>
@@ -78,12 +78,13 @@ export default function Home() {
           <div className="space-y-12">
             {/* Map Section */}
             <section className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">Map of Impact</h2>
               <MapWithNoSSR />
             </section>
 
             {/* Projects Section */}
             <section className="w-full">
-              <h2 className="text-3xl font-bold mb-6">Portfolio</h2>
+              <h2 className="text-2xl font-bold mb-6">Portfolio</h2>
               <Projects />
             </section>
           </div>
