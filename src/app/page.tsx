@@ -28,7 +28,18 @@ export default function Home() {
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* Navigation */}
       <nav className="w-full max-w-6xl flex justify-between items-center">
-        <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋</h1>
+        <div className="flex items-center gap-6">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg">
+            <Image
+              src="/me.jpeg" // Add your photo to public folder
+              alt="Sun's photo"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+          <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
+        </div>
         <div className="flex gap-4 items-center">
           <button
             onClick={() => setIsVideoModalOpen(true)}
@@ -47,10 +58,20 @@ export default function Home() {
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-6xl">
         {/* Introduction Section */}
-        <section className="w-full text-center sm:text-left mb-12">
-          
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          I&apos;m a Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, Redux, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.          </p>
+        <section className="w-full space-y-8">
+          <div className="prose dark:prose-invert max-w-none">
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              I&apos;m a Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, Redux, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
+            </p>
+          </div>
+
+          {/* Tech Stack Section */}
+          <div className="w-full">
+            <h2 className="text-xl font-bold mb-4">Technologies I Work With</h2>
+            <div className="bg-white/90 dark:bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <TechStack />
+            </div>
+          </div>
         </section>
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
@@ -92,56 +113,38 @@ export default function Home() {
       />
 
       <footer className="row-start-3 w-full max-w-6xl space-y-8">
-        <div>
-          <h2 className="text-xl font-bold text-center mb-4">Technologies I Work With</h2>
-          <TechStack />
-        </div>
         <div className="flex gap-6 flex-wrap items-center justify-center">
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/sunthecoder"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               aria-hidden
-              src="/file.svg"
-              alt="File icon"
+              src="/linkedin.png" 
+              alt="LinkedIn icon"
               width={16}
               height={16}
             />
-            Learn
+            LinkedIn
           </a>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/sunthecoder"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Image
               aria-hidden
-              src="/window.svg"
-              alt="Window icon"
+              src="/tech/GitHub.png"
+              alt="GitHub icon"
               width={16}
               height={16}
             />
-            Examples
+            GitHub
           </a>
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/globe.svg"
-              alt="Globe icon"
-              width={16}
-              height={16}
-            />
-            Go to nextjs.org →
-          </a>
+          
         </div>
       </footer>
     </div>

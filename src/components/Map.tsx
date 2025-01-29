@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
@@ -7,18 +7,22 @@ import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 
 export default function Map() {
   const mapRef = useRef(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Store ref value in a variable
-    const currentMap = mapRef.current;
-    
+    setIsMounted(true);
     return () => {
-      if (currentMap) {
+      const map = mapRef.current;
+      if (map) {
         // @ts-expect-error - Leaflet types are not complete
-        currentMap.remove();
+        map._leaflet_id = null;
       }
     };
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div className="w-full h-full">

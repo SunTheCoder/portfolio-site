@@ -8,6 +8,7 @@ const initialProjects = [
     description: 'Full-Stack application using React, JavaScript, Python, Flask, Redux, TailwindCSS, Leaflet to map ArcGis and GeoJson data in order to build a more streamlined connection to grant funding and grant information for Indigenous Nations.',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Leaflet', 'AWS', 'Python', 'Flask', 'Redux', 'ArcGis', 'GeoJson', 'Postgres', 'Docker'],
     link: 'https://ceconnectors.org',
+    imageUrl: '/projects/cec-map.png',
   },
   {
     id: 'care-map',
@@ -15,6 +16,7 @@ const initialProjects = [
     description: 'This repo is a full stack application using JavaScript, React, Redux, Vite, Supabase, Leaflet Maps, Open Cage Geolocation, MetaMask/Infura API for crypto wallet management.',
     technologies: ['React', 'Leaflet', 'TypeScript', 'Supabase', 'Open Cage Geolocation', 'MetaMask/Infura API', 'Vite', 'Redux', 'ChakraUI', 'Web Sockets'],
     link: 'https://github.com/SunTheCoder/Communityv2',
+    imageUrl: '/projects/care-map.png',
   },
   {
     id: 'art-recommendation',
@@ -22,6 +24,7 @@ const initialProjects = [
     description: 'This repo is an AI Art Recommendation tool built with TensorFlow and Keras; using a dataset that I am creating and actively testing. To be used in the LCVA Portal mobile application I am building for Longwood University.',
     technologies: ['Python', 'TensorFlow', 'Keras'],
     link: 'https://github.com/SunTheCoder/ArtRecc',
+    imageUrl: '/projects/art-recommendation.png',
   },
   {
     id: 'space-case',
@@ -29,6 +32,7 @@ const initialProjects = [
     description: 'This repo is a containerized full stack application using Python, Flask, JavaScript, Vite, React, Redux, Web3, MetaMask, Infura, Docker, ChakraUI, CSS, HTML technologies. Making uploads on Web3 feel as natural Web2.',
     technologies: ['Python', 'Flask', 'JavaScript', 'Vite', 'React', 'Redux', 'Web3', 'MetaMask', 'Infura', 'Docker', 'ChakraUI', 'CSS', 'HTML'],
     link: 'https://github.com/SunTheCoder/testWeb3Project2',
+    imageUrl: '/projects/spacecase.png',
   },
 ];
 // Visit /api/projects/seed in your browser to trigger the seeding. Then visit /api/projects to verify the projects are there. 
