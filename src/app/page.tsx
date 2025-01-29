@@ -122,7 +122,7 @@ export default function Home() {
           >
             <Image
               aria-hidden
-              src="/linkedin.png" 
+              src="/LinkedIn.png" 
               alt="LinkedIn icon"
               width={16}
               height={16}
