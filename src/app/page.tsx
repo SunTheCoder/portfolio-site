@@ -39,6 +39,8 @@ export default function Home() {
             />
           </div>
           <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
+          <h2 className="text-2xl font-bold">Full Stack Developer residing in Richmond, Va</h2>
+
         </div>
         <div className="flex gap-4 items-center">
           <button
