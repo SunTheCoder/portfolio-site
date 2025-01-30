@@ -38,3 +38,31 @@ body {
 .leaflet-marker-shadow {
   animation: none !important;
 }
+
+@font-face {
+  font-family: 'Press Start 2P';
+  src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+}
+
+.pixel-corners {
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
+
+.pixel-font {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  line-height: 1.5;
+}
