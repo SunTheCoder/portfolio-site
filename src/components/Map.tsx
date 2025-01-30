@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
-import type { LeafletEvent, LeafletMouseEvent, LeafletMouseEventHandlerFn } from 'leaflet';
+import type { LeafletMouseEventHandlerFn } from 'leaflet';
 
 interface ImpactPoint {
   id: string;
