@@ -95,11 +95,14 @@ export default function Home() {
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.4 }}
                     >
+                      <p>HOMETOWN: Baltimore, MD</p>
+                      <p>PLAYER NAME: Suluku</p>
                       <p>STATUS: IN BATTLE</p>
                       <p>CURRENT QUEST: Horizon Zero Dawn</p>
                       <p>WEAPON: PlayStation 5</p>
                       <p>COMPANION: Fern the Dog</p>
-                      <p>FACTION: The Coder&apos;s Guild</p>  
+                      <p>FACTION: The Horde</p>  
+                      <p>GUILD: The Coder&apos;s Guild</p>  
                       <p>UNIQUE SKILL: &quot;Done Yesterday&quot;</p>
                       <p>WEAKNESS: Fern the Dog</p>
                     </motion.div>
@@ -110,7 +113,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col">
             <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
-            <h4 className="text-md font-bold">Full Stack Developer residing in Richmond, Va</h4>
+            <h4 className="text-md font-bold">Full Stack Developer residing in Richmond, VA</h4>
           </div>
         </div>
         <div className="flex gap-4 items-center">
