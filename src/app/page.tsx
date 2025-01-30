@@ -10,8 +10,6 @@ import TechStack from '@/components/TechStack';
 import VideoModal from '@/components/VideoModal';
 import Timeline from '@/components/Timeline';
 import Tooltip from '@/components/Tooltip';
-import Stats from '@/components/Stats';
-import BattleStatus from '@/components/BattleStatus';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Dynamically import the Map component with no SSR

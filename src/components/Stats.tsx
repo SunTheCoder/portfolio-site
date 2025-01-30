@@ -1,5 +1,4 @@
 'use client';
-import { motion } from 'framer-motion';
 
 function RetroExpBar({ value }: { value: number }) {
     const segments = 20; // Total number of segments
