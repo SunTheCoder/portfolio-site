@@ -34,6 +34,14 @@ const initialProjects = [
     link: 'https://github.com/SunTheCoder/testWeb3Project2',
     imageUrl: '/projects/spacecase.png',
   },
+  {
+    id: 'redis-gallery',
+    name: 'Redis Gallery',
+    description: 'A gallery of images stored in Redis. Demo for creating a larger gallery management app built for speed and team collaboration',
+    technologies: ["Redis", "Next.js", "React", "TailwindCSS", "Vercel"],
+    link: 'https://next-vercel-kv-demo.vercel.app/',
+    imageUrl: '/projects/redis-gallery.png',
+  }
 ];
 // Visit /api/projects/seed in your browser to trigger the seeding. Then visit /api/projects to verify the projects are there. 
 export async function GET() {
