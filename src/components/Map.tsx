@@ -101,7 +101,7 @@ const impactPoints: ImpactPoint[] = [
 ];
 
 export default function Map() {
-  const popupTimeoutRef = useRef<NodeJS.Timeout>();
+  const popupTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseOver: LeafletMouseEventHandlerFn = (e) => {
     if (popupTimeoutRef.current) {
