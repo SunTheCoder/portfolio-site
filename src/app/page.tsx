@@ -72,19 +72,22 @@ export default function Home() {
                           <span className="text-green-400 font-mono">Sun</span>
                           <span className="text-green-400 font-mono">LVL 99</span>
                         </div>
-                        <motion.div 
-                          className="h-3 bg-gray-700 pixel-corners overflow-hidden"
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{ delay: 0.2 }}
-                        >
+                        <div className="flex items-center gap-2">
+                          <span className="text-green-400 font-mono">HP:</span>
                           <motion.div 
-                            className="h-full bg-green-500"
-                            initial={{ width: 0 }}
-                            animate={{ width: '100%' }}
-                            transition={{ delay: 0.3, duration: 0.9 }}
-                          />
-                        </motion.div>
+                            className="h-3 bg-gray-700 pixel-corners overflow-hidden flex-1"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ delay: 0.2 }}
+                          >
+                            <motion.div 
+                              className="h-full bg-green-500"
+                              initial={{ width: 0 }}
+                              animate={{ width: '100%' }}
+                              transition={{ delay: 0.3, duration: 0.9 }}
+                            />
+                          </motion.div>
+                        </div>
                       </div>
                     </div>
                     <motion.div 
