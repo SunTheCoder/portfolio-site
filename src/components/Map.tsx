@@ -121,8 +121,8 @@ export default function Map() {
 
   return (
     <MapContainer
-      center={[37.5407, -77.4360]} // Center on Richmond
-      zoom={7}
+      center={[39.8283, -98.5795]} // Center of continental US (near Lebanon, Kansas)
+      zoom={4}
       scrollWheelZoom={false}
       className="w-full h-full"
     >
