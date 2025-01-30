@@ -78,6 +78,23 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="w-full space-y-6">
+          <div className="flex justify-between items-center">
+            <h2 className="text-2xl font-bold">Experience</h2>
+            <a
+              href="/resume.pdf"
+              download
+              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Resume
+            </a>
+          </div>
+          <Timeline />
+        </section>
+
         <div className="w-full grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
           <div className="space-y-12">
             {/* Map Section */}
@@ -102,22 +119,7 @@ export default function Home() {
           </div>
         </div>
 
-        <section className="w-full space-y-6">
-          <div className="flex justify-between items-center">
-            <h2 className="text-2xl font-bold">Experience</h2>
-            <a
-              href="/resume.pdf"
-              download
-              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download Resume
-            </a>
-          </div>
-          <Timeline />
-        </section>
+        
       </main>
 
       {/* Contact Modal */}
