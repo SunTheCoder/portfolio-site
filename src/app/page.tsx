@@ -98,9 +98,11 @@ export default function Home() {
         <div className="w-full grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-8">
           <div className="space-y-12">
             {/* Map Section */}
-            <section className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
+            <section className="w-full">
               <h2 className="text-2xl font-bold mb-4">Map of Impact</h2>
-              <MapWithNoSSR />
+              <div className="h-[400px] rounded-lg overflow-hidden shadow-lg">
+                <MapWithNoSSR />
+              </div>
             </section>
 
             {/* Projects Section */}
@@ -165,6 +167,7 @@ export default function Home() {
               alt="GitHub icon"
               width={16}
               height={16}
+              className="bg-white rounded-full p-[2px]"
             />
             GitHub
           </a>
