@@ -10,6 +10,9 @@ import TechStack from '@/components/TechStack';
 import VideoModal from '@/components/VideoModal';
 import Timeline from '@/components/Timeline';
 import Tooltip from '@/components/Tooltip';
+import Stats from '@/components/Stats';
+import BattleStatus from '@/components/BattleStatus';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Dynamically import the Map component with no SSR
 const MapWithNoSSR = dynamic(
@@ -25,20 +28,85 @@ const MapWithNoSSR = dynamic(
 export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [showBattleStatus, setShowBattleStatus] = useState(false);
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       {/* Navigation */}
       <nav className="w-full max-w-6xl flex justify-between items-center">
         <div className="flex items-center gap-6">
-          <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg">
-            <Image
-              src="/me.jpeg" // Add your photo to public folder
-              alt="Sun's photo"
-              fill
-              className="object-cover"
-              priority
-            />
+          <div 
+            className="relative"
+            onMouseEnter={() => setShowBattleStatus(true)}
+            onMouseLeave={() => setShowBattleStatus(false)}
+          >
+            <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg">
+              <Image
+                src="/me.jpeg" // Add your photo to public folder
+                alt="Sun's photo"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <AnimatePresence>
+              {showBattleStatus && (
+                <motion.div 
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[360px] z-50"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 30
+                  }}
+                >
+                  <motion.div 
+                    className="border-4 border-gray-700 bg-gray-900 p-4 pixel-corners"
+                    initial={{ scale: 0.95 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.1 }}
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="flex-1">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-green-400 font-mono">Sun</span>
+                          <span className="text-green-400 font-mono">LVL 99</span>
+                        </div>
+                        <motion.div 
+                          className="h-3 bg-gray-700 pixel-corners overflow-hidden"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ delay: 0.2 }}
+                        >
+                          <motion.div 
+                            className="h-full bg-green-500"
+                            initial={{ width: 0 }}
+                            animate={{ width: '100%' }}
+                            transition={{ delay: 0.3, duration: 0.9 }}
+                          />
+                        </motion.div>
+                      </div>
+                    </div>
+                    <motion.div 
+                      className="font-mono text-green-400 space-y-2"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <p>STATUS: IN BATTLE</p>
+                      <p>CURRENT QUEST: Horizon Zero Dawn</p>
+                      <p>WEAPON: PlayStation 5</p>
+                      <p>COMPANION: Fern the Dog</p>
+                      <p>FACTION: The Coder&apos;s Guild</p>  
+                      <p>UNIQUE SKILL: &quot;Done Yesterday&quot;</p>
+                      <p>WEAKNESS: Fern the Dog</p>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <div className="flex flex-col">
             <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
@@ -125,6 +193,12 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-4">GitHub Activity</h2>
               <GitHubActivity />
             </section>
+
+            {/* Battle Status */}
+            {/* <BattleStatus /> */}
+
+            {/* Stats Section */}
+            {/* <Stats /> */}
           </div>
         </div>
 
