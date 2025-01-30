@@ -9,6 +9,7 @@ import Modal from '@/components/Modal';
 import TechStack from '@/components/TechStack';
 import VideoModal from '@/components/VideoModal';
 import Timeline from '@/components/Timeline';
+import Tooltip from '@/components/Tooltip';
 
 // Dynamically import the Map component with no SSR
 const MapWithNoSSR = dynamic(
@@ -45,18 +46,22 @@ export default function Home() {
           </div>
         </div>
         <div className="flex gap-4 items-center">
-          <button
-            onClick={() => setIsVideoModalOpen(true)}
-            className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
-          >
-            Watch Intro ▶️
-          </button>
-          <button
-            onClick={() => setIsContactModalOpen(true)}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-          >
-            Contact Me
-          </button>
+          <Tooltip text="Watch a quick intro about me">
+            <button
+              onClick={() => setIsVideoModalOpen(true)}
+              className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+            >
+              Watch Intro ▶️
+            </button>
+          </Tooltip>
+          <Tooltip text="Let's connect!">
+            <button
+              onClick={() => setIsContactModalOpen(true)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Contact Me
+            </button>
+          </Tooltip>
         </div>
       </nav>
 
@@ -71,7 +76,7 @@ export default function Home() {
 
           {/* Tech Stack Section */}
           <div className="w-full">
-            <h2 className="text-2xl font-bold mb-4">Technologies I Work With</h2>
+            <h2 className="text-2xl font-bold mb-4">Technologies</h2>
             <div className="bg-white/90 dark:bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg">
               <TechStack />
             </div>
@@ -81,9 +86,10 @@ export default function Home() {
         <section className="w-full space-y-6">
           <div className="flex justify-between items-center">
             <h2 className="text-2xl font-bold">Experience</h2>
-            <a
-              href="/resume.pdf"
-              download
+              <Tooltip text="Download my resume">
+              <a
+                href="/resume.pdf"
+                download
               className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,6 +97,7 @@ export default function Home() {
               </svg>
               Download Resume
             </a>
+          </Tooltip>
           </div>
           <Timeline />
         </section>
@@ -140,37 +147,41 @@ export default function Home() {
 
       <footer className="row-start-3 w-full max-w-6xl space-y-8">
         <div className="flex gap-6 flex-wrap items-center justify-center">
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://www.linkedin.com/in/sunthecoder"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/LinkedIn.png" 
-              alt="LinkedIn icon"
-              width={16}
-              height={16}
-            />
-            LinkedIn
-          </a>
-          <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://github.com/sunthecoder"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              aria-hidden
-              src="/tech/GitHub.png"
-              alt="GitHub icon"
-              width={16}
-              height={16}
-              className="bg-white rounded-full p-[2px]"
-            />
-            GitHub
-          </a>
+          <Tooltip text="View my LinkedIn profile">
+            <a
+              className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+              href="https://www.linkedin.com/in/sunthecoder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                aria-hidden
+                src="/LinkedIn.png" 
+                alt="LinkedIn icon"
+                width={16}
+                height={16}
+              />
+              LinkedIn
+            </a>
+          </Tooltip>
+          <Tooltip text="Check out my GitHub repos">
+            <a
+              className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+              href="https://github.com/sunthecoder"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                aria-hidden
+                src="/tech/GitHub.png"
+                alt="GitHub icon"
+                width={16}
+                height={16}
+                className="bg-white rounded-full p-[2px]"
+              />
+              GitHub
+            </a>
+          </Tooltip>
           
         </div>
       </footer>
