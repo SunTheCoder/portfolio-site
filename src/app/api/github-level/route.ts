@@ -11,10 +11,10 @@ interface GitHubRepo {
   stargazers_count: number;
 }
 
-interface GitHubUser {
-  public_repos: number;
-  followers: number;
-}
+// interface GitHubUser {
+//   public_repos: number;
+//   followers: number;
+// }
 
 export async function GET() {
   try {
