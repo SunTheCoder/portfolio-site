@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useAchievements } from '@/contexts/AchievementContext';
 
 interface TimelineItem {
   date: string;
@@ -65,6 +66,16 @@ const timelineData: TimelineItem[] = [
 export default function Timeline() {
   const [activeItem, setActiveItem] = useState<number | null>(null);
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const { unlockAchievement } = useAchievements();
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  const handleTimelineClick = (index: number) => {
+    setActiveItem(activeItem === index ? null : index);
+    if (!hasInteracted) {
+      unlockAchievement('timeline_explorer');
+      setHasInteracted(true);
+    }
+  };
 
   return (
     <div className="space-y-4">
@@ -90,7 +101,7 @@ export default function Timeline() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-visible" // Changed from overflow-hidden
+            className="overflow-visible"
           >
             <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-gray-200 dark:before:bg-gray-700">
               {timelineData.map((item, index) => (
@@ -100,7 +111,7 @@ export default function Timeline() {
                   </div>
                   <div 
                     className={`ml-10 flex-grow cursor-pointer space-y-2 rounded-lg bg-white dark:bg-gray-800 p-4 shadow-lg transition-all hover:shadow-xl ${activeItem === index ? 'ring-2 ring-blue-500' : ''}`}
-                    onClick={() => setActiveItem(activeItem === index ? null : index)}
+                    onClick={() => handleTimelineClick(index)}
                   >
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-bold">{item.title}</h3>
@@ -125,7 +136,7 @@ export default function Timeline() {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="overflow-visible" // Changed from overflow-hidden
+                          className="overflow-visible"
                         >
                           <p className="text-gray-600 dark:text-gray-300 mb-3">{item.description}</p>
                           <div className="flex flex-wrap gap-2">

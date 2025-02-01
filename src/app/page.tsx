@@ -1,5 +1,5 @@
 'use client';  // Need this for react-leaflet to work
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 import Projects from '@/components/Projects';
@@ -11,6 +11,10 @@ import VideoModal from '@/components/VideoModal';
 import Timeline from '@/components/Timeline';
 import Tooltip from '@/components/Tooltip';
 import { motion, AnimatePresence } from 'framer-motion';
+import AchievementPopup from '@/components/Achievement';
+import { useAchievements } from '@/contexts/AchievementContext';
+import XPBar from '@/components/XPBar';
+import BattleStatus from '@/components/BattleStatus';
 
 // Dynamically import the Map component with no SSR
 const MapWithNoSSR = dynamic(
@@ -27,6 +31,37 @@ export default function Home() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [showBattleStatus, setShowBattleStatus] = useState(false);
+  const { unlockAchievement } = useAchievements();
+  const introRef = useRef<HTMLDivElement>(null);
+  const techRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  const handleIntroView = () => {
+    // Add to your intro section's IntersectionObserver
+    unlockAchievement('intro_complete');
+  };
+
+  const handleTechView = () => {
+    // Add to tech stack section
+    unlockAchievement('tech_master');
+  };
+
+  const handleMapView = () => {
+    // Add when map is viewed
+    unlockAchievement('map_explorer');
+  };
+
+  const handleProjectView = () => {
+    // Add when projects are viewed
+    unlockAchievement('project_viewer');
+  };
+
+  const handleContactClick = () => {
+    // Add to contact button click
+    unlockAchievement('contact_made');
+    setIsContactModalOpen(true);
+  };
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -35,12 +70,15 @@ export default function Home() {
         <div className="flex items-center gap-6">
           <div 
             className="relative"
-            onMouseEnter={() => setShowBattleStatus(true)}
+            onMouseEnter={() => {
+              setShowBattleStatus(true);
+              unlockAchievement('stat_check');
+            }}
             onMouseLeave={() => setShowBattleStatus(false)}
           >
             <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg">
               <Image
-                src="/me.jpeg" // Add your photo to public folder
+                src="/me.jpeg"
                 alt="Sun's photo"
                 fill
                 className="object-cover"
@@ -49,65 +87,13 @@ export default function Home() {
             </div>
             <AnimatePresence>
               {showBattleStatus && (
-                <motion.div 
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[360px] z-50"
-                  initial={{ opacity: 0, y: -20 }}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ 
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 30
-                  }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-0 left-full ml-4 z-50"
                 >
-                  <motion.div 
-                    className="border-4 border-gray-700 bg-gray-900 p-4 pixel-corners"
-                    initial={{ scale: 0.95 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.1 }}
-                  >
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="flex-1">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-green-400 font-mono">Sun</span>
-                          <span className="text-green-400 font-mono">LVL 99</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-green-400 font-mono">HP:</span>
-                          <motion.div 
-                            className="h-3 bg-gray-700 pixel-corners overflow-hidden flex-1"
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ delay: 0.2 }}
-                          >
-                            <motion.div 
-                              className="h-full bg-green-500"
-                              initial={{ width: 0 }}
-                              animate={{ width: '100%' }}
-                              transition={{ delay: 0.3, duration: 0.9 }}
-                            />
-                          </motion.div>
-                        </div>
-                      </div>
-                    </div>
-                    <motion.div 
-                      className="font-mono text-green-400 space-y-2"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <p>HOMETOWN: Baltimore, MD</p>
-                      <p>PLAYER NAME: Suluku</p>
-                      <p>STATUS: IN BATTLE</p>
-                      <p>CURRENT QUEST: Horizon Zero Dawn</p>
-                      <p>WEAPON: PlayStation 5</p>
-                      <p>COMPANION: Fern the Dog</p>
-                      <p>FACTION: The Horde</p>  
-                      <p>GUILD: The Coder&apos;s Guild</p>  
-                      <p>UNIQUE SKILL: &quot;Done Yesterday&quot;</p>
-                      <p>WEAKNESS: Fern the Dog</p>
-                    </motion.div>
-                  </motion.div>
+                  <BattleStatus />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -128,7 +114,7 @@ export default function Home() {
           </Tooltip>
           <Tooltip text="Let's connect!">
             <button
-              onClick={() => setIsContactModalOpen(true)}
+              onClick={handleContactClick}
               className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
             >
               Contact Me
@@ -139,19 +125,22 @@ export default function Home() {
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-6xl">
         {/* Introduction Section */}
-        <section className="w-full space-y-8">
+        <section id="intro-section" ref={introRef} className="w-full space-y-8">
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              I&apos;m a Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, Redux, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
+              I&apos;m a Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
             </p>
           </div>
+        </section>
 
-          {/* Tech Stack Section */}
-          <div className="w-full">
-            <h2 className="text-2xl font-bold mb-4">Technologies</h2>
-            <div className="bg-white/90 dark:bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-              <TechStack />
-            </div>
+        {/* Tech Stack Section */}
+        <section className="w-full">
+          <h2 className="text-2xl font-bold mb-4">Technologies</h2>
+          <div 
+            className="bg-white/90 dark:bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg"
+            onMouseEnter={() => unlockAchievement('tech_master')} // Unlock when exploring tech stack
+          >
+            <TechStack />
           </div>
         </section>
 
@@ -160,16 +149,17 @@ export default function Home() {
             <h2 className="text-2xl font-bold">Experience</h2>
               <Tooltip text="Download my resume">
               <a
-                href="/resume.pdf"
+                href="/Sun-resume.pdf"
                 download
-              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              Download Resume
-            </a>
-          </Tooltip>
+                onClick={() => unlockAchievement('resume_downloaded')}
+                className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                Download Resume
+              </a>
+            </Tooltip>
           </div>
           <Timeline />
         </section>
@@ -179,7 +169,10 @@ export default function Home() {
             {/* Map Section */}
             <section className="w-full">
               <h2 className="text-2xl font-bold mb-4">Map of Impact</h2>
-              <div className="h-[400px] rounded-lg overflow-hidden shadow-lg">
+              <div 
+                className="h-[400px] rounded-lg overflow-hidden shadow-lg"
+                onClick={() => unlockAchievement('map_explorer')} // Unlock when clicking the map
+              >
                 <MapWithNoSSR />
               </div>
             </section>
@@ -187,7 +180,9 @@ export default function Home() {
             {/* Projects Section */}
             <section className="w-full">
               <h2 className="text-2xl font-bold mb-6">Portfolio</h2>
-              <Projects />
+              <div onMouseEnter={() => unlockAchievement('project_viewer')}> {/* Unlock when browsing projects */}
+                <Projects />
+              </div>
             </section>
           </div>
 
@@ -197,12 +192,6 @@ export default function Home() {
               <h2 className="text-2xl font-bold mb-4">GitHub Activity</h2>
               <GitHubActivity />
             </section>
-
-            {/* Battle Status */}
-            {/* <BattleStatus /> */}
-
-            {/* Stats Section */}
-            {/* <Stats /> */}
           </div>
         </div>
 
@@ -263,6 +252,9 @@ export default function Home() {
           
         </div>
       </footer>
+
+      <XPBar />
+      <AchievementPopup />
     </div>
   );
 }

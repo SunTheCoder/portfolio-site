@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Project } from '@/app/api/projects/route';
 import Image from 'next/image';
+import { useAchievements } from '@/contexts/AchievementContext';
 
 const PROJECTS_PER_PAGE = 4;
 
@@ -30,6 +31,8 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [hasViewedAll, setHasViewedAll] = useState(false);
+  const { unlockAchievement } = useAchievements();
 
   useEffect(() => {
     async function fetchProjects() {
@@ -63,10 +66,14 @@ export default function Projects() {
   );
 
   const paginate = (newDirection: number) => {
+    setDirection(newDirection);
     const newPage = currentPage + newDirection;
-    if (newPage >= 0 && newPage < totalPages) {
-      setDirection(newDirection);
-      setCurrentPage(newPage);
+    setCurrentPage(newPage);
+    
+    // Check if they've viewed all pages
+    if (!hasViewedAll && newPage === totalPages - 1) {
+      setHasViewedAll(true);
+      unlockAchievement('project_master');
     }
   };
 
