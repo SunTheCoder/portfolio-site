@@ -7,6 +7,15 @@ interface GitHubStats {
   followers: number;
 }
 
+interface GitHubRepo {
+  stargazers_count: number;
+}
+
+interface GitHubUser {
+  public_repos: number;
+  followers: number;
+}
+
 export async function GET() {
   try {
     const headers = {
@@ -23,7 +32,7 @@ export async function GET() {
     const repos = await reposResponse.json();
 
     // Calculate total stars
-    const totalStars = repos.reduce((acc: number, repo: any) => acc + repo.stargazers_count, 0);
+    const totalStars = repos.reduce((acc: number, repo: GitHubRepo) => acc + repo.stargazers_count, 0);
 
     // Get contribution data (last year)
     const contributionsResponse = await fetch(
