@@ -33,35 +33,37 @@ export default function Home() {
   const [showBattleStatus, setShowBattleStatus] = useState(false);
   const { unlockAchievement } = useAchievements();
   const introRef = useRef<HTMLDivElement>(null);
-  const techRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<HTMLDivElement>(null);
-  const projectsRef = useRef<HTMLDivElement>(null);
 
-  const handleIntroView = () => {
-    // Add to your intro section's IntersectionObserver
-    unlockAchievement('intro_complete');
-  };
-
-  const handleTechView = () => {
-    // Add to tech stack section
-    unlockAchievement('tech_master');
-  };
-
-  const handleMapView = () => {
-    // Add when map is viewed
-    unlockAchievement('map_explorer');
-  };
-
-  const handleProjectView = () => {
-    // Add when projects are viewed
-    unlockAchievement('project_viewer');
-  };
+  const battleStatusTimeoutRef = useRef<NodeJS.Timeout>(null);
 
   const handleContactClick = () => {
     // Add to contact button click
     unlockAchievement('contact_made');
     setIsContactModalOpen(true);
   };
+
+  const handleMouseEnter = () => {
+    if (battleStatusTimeoutRef.current) {
+      clearTimeout(battleStatusTimeoutRef.current);
+    }
+    setShowBattleStatus(true);
+    unlockAchievement('stat_check');
+  };
+
+  const handleMouseLeave = () => {
+    battleStatusTimeoutRef.current = setTimeout(() => {
+      setShowBattleStatus(false);
+    }, 500); // 500ms delay before hiding
+  };
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (battleStatusTimeoutRef.current) {
+        clearTimeout(battleStatusTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -70,11 +72,8 @@ export default function Home() {
         <div className="flex items-center gap-6">
           <div 
             className="relative"
-            onMouseEnter={() => {
-              setShowBattleStatus(true);
-              unlockAchievement('stat_check');
-            }}
-            onMouseLeave={() => setShowBattleStatus(false)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             <div className="relative w-40 h-40 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg">
               <Image

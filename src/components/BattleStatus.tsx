@@ -1,16 +1,16 @@
 'use client';
 import { useGitHubLevel } from '@/contexts/GitHubLevelContext';
 
-interface GitHubLevel {
-  level: number;
-  stats: {
-    contributions: number;
-    repositories: number;
-    stars: number;
-    followers: number;
-  };
-  xp: number;
-}
+// interface GitHubLevel {
+//   level: number;
+//   stats: {
+//     contributions: number;
+//     repositories: number;
+//     stars: number;
+//     followers: number;
+//   };
+//   xp: number;
+// }
 
 export default function BattleStatus() {
   const { githubLevel, isLoading } = useGitHubLevel();

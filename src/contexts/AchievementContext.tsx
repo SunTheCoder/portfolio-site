@@ -15,6 +15,8 @@ interface AchievementContextType {
   currentAchievement: Achievement | null;
   totalXP: number;
   level: number;
+  playerName: string;
+  setPlayerName: (name: string) => void;
 }
 
 export const achievements: Achievement[] = [
@@ -83,6 +85,7 @@ export function AchievementProvider({ children }: { children: React.ReactNode })
   const [showPopup, setShowPopup] = useState(false);
   const [currentAchievement, setCurrentAchievement] = useState<Achievement | null>(null);
   const [totalXP, setTotalXP] = useState(0);
+  const [playerName, setPlayerName] = useState('PLAYER');
 
   // Calculate level based on XP (every 500 XP = 1 level)
   const level = Math.floor(totalXP / 500) + 1;
@@ -107,7 +110,9 @@ export function AchievementProvider({ children }: { children: React.ReactNode })
       showPopup, 
       currentAchievement,
       totalXP,
-      level
+      level,
+      playerName,
+      setPlayerName
     }}>
       {children}
     </AchievementContext.Provider>
