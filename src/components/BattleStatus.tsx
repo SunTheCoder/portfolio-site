@@ -59,11 +59,13 @@ export default function BattleStatus() {
         </div>
 
         <div className="font-mono text-green-400 space-y-2">
-          <p>STATUS: IN BATTLE</p>
+          <p>STATUS: In Battle</p>
           <p>CURRENT QUEST: Silent Hill 2</p>
+          <p>CURRENT PROJECT: Care Map</p>
           <p>WEAPON: PlayStation 5</p>
           <p>COMPANION: Fern the Dog</p>
-          <p>FACTION: The Coder&apos;s Guild</p>
+          <p>FACTION: Horde</p>
+          <p>GUILD: The Coder&apos;s Guild</p>
           <p>STATS:</p>
           <div className="pl-4 text-sm">
             <p>COMMITS: {githubLevel?.stats.contributions || 0}</p>
