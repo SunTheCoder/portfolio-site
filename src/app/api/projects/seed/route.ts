@@ -15,7 +15,7 @@ const initialProjects = [
     name: 'Bad Kitty Does Not Like Art Museums',
     description: 'This repo is full stack application using Vanilla JavaScript, Express, AWS S3 Storage, HTML, CSS technologies.',
     technologies: ['JavaScript', 'Express', 'AWS S3 Storage', 'HTML', 'CSS'],
-    link: 'https://github.com/SunTheCoder/Bad-Kitty-Project',
+    link: 'https://badkittycomicgame.netlify.app/',
     imageUrl: '/projects/bad-kitty.png',
   },
   {
