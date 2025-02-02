@@ -41,6 +41,22 @@ const initialProjects = [
     technologies: ["Redis", "Next.js", "React", "TailwindCSS", "Vercel"],
     link: 'https://next-vercel-kv-demo.vercel.app/',
     imageUrl: '/projects/redis-gallery.png',
+  },
+  {
+    id: 'lcva-portal',
+    name: 'LCVA Portal',
+    description: 'In development is an iOS application for Longwood University/the Longwood Center of Visual Arts. The application, utilizing Swift/SwiftUI and Python/Flask, aims to enhance education, engagement, and business analytics across the campus. The application is designed to be scalable to accommodate the evolving needs of the organization.',
+    technologies: ['Swift', 'SwiftUI', 'Python', 'Flask', 'Firebase', 'Firestore'],
+    link: 'https://github.com/SunTheCoder/LCVASwiftPortal',
+    imageUrl: '/projects/lcva-portal.png',
+  },
+  {
+    id: 'bad-kitty',
+    name: 'Bad Kitty Does Not Like Art Museums',
+    description: 'This repo is full stack application using Vanilla JavaScript, Express, AWS S3 Storage, HTML, CSS technologies.',
+    technologies: ['JavaScript', 'Express', 'AWS S3 Storage', 'HTML', 'CSS'],
+    link: 'https://github.com/SunTheCoder/Bad-Kitty-Project',
+    imageUrl: '/projects/bad-kitty.png',
   }
 ];
 // Visit /api/projects/seed in your browser to trigger the seeding. Then visit /api/projects to verify the projects are there. 
