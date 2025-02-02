@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
-import type { LeafletMouseEventHandlerFn } from 'leaflet';
+import type { LeafletMouseEventHandlerFn, PopupEventHandlerFn } from 'leaflet';
 
 interface ImpactPoint {
   id: string;
@@ -138,13 +138,13 @@ export default function Map() {
     e.target.openPopup();
   };
 
-  const handlePopupClose: LeafletMouseEventHandlerFn = (e) => {
+  const handlePopupClose: PopupEventHandlerFn = (e) => {
     if (popupTimeoutRef.current) {
       clearTimeout(popupTimeoutRef.current);
     }
     popupTimeoutRef.current = setTimeout(() => {
       e.target.closePopup();
-    }, 300); // 300ms delay before closing
+    }, 300);
   };
 
   return (
@@ -172,7 +172,10 @@ export default function Map() {
               <h3 className="font-bold text-lg mb-1">{point.title}</h3>
               <p className="text-sm text-gray-600 mb-2">{point.date}</p>
               <p className="text-sm mb-2">{point.description}</p>
-              <p className="text-sm text-blue-600 mb-2">{point.impact}</p>
+              {point.impactLine1 && <p className="text-sm text-blue-600 mb-2">{point.impactLine1}</p>}
+              {point.impactLine2 && <p className="text-sm text-blue-600 mb-2">{point.impactLine2}</p>}
+              {point.impactLine3 && <p className="text-sm text-blue-600 mb-2">{point.impactLine3}</p>}
+              {point.impactLine4 && <p className="text-sm text-blue-600 mb-2">{point.impactLine4}</p>}
               {point.technologies && (
                 <div className="flex flex-wrap gap-1">
                   {point.technologies.map((tech) => (
