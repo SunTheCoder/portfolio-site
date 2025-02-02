@@ -7,7 +7,10 @@ interface TimelineItem {
   date: string;
   title: string;
   company: string;
-  description: string;
+  descriptionLine1?: string;
+  descriptionLine2?: string;
+  descriptionLine3?: string;
+  descriptionLine4?: string;
   technologies: string[];
 }
 
@@ -16,49 +19,55 @@ const timelineData: TimelineItem[] = [
     date: "2024 - Present",
     title: "Software Engineer",
     company: "Amerind Nation",
-    description: "Led development of a platform connecting Indigenous Nations with clean energy funding opportunities. Implemented GIS mapping features and grant management system.",
-    technologies: ["Next.js", "Python/Flask", "PostgreSQL", "AWS", "GIS"]
+    descriptionLine1: `• Led development of a platform connecting Indigenous Nations with clean energy funding opportunities.`,
+    descriptionLine2: `• Implemented scalable, GIS mapping features and grant management system.`,
+    technologies: ["Next.js", "React", "Python/Flask", "PostgreSQL", "AWS", "GIS"]
   },
   {
     date: "2024 - 2025",
-    title: "App Academy",
+    title: "App Academy Full-Time Year long Bootcamp",
     company: "App Academy",
-    description: "Completed a rigorous 1000+ hour, year long coding bootcamp focused on full stack web development. Learned JavaScript, React, Node.js, and more.",
+    descriptionLine1: "• Completed a rigorous 800+ hour, year long coding bootcamp focused on full stack web development at one of the top 10 coding bootcamps in the country.",
+    descriptionLine2: "• Spent 1500+ additional hours studying and building my own projects",
     technologies: ["JavaScript", "React", "Node.js", "PostgreSQL", "Python", "Flask", "AWS", "Docker", "Git", "CI/CD", "React", "Redux", "SQL", "REST", "Authentication", "Authorization", "Testing", "Debugging", "Deployment", "Scrum", "Kanban", "Project Management", "Code Review", "Pair Programming", "Code Refactoring", "Code Optimization", "Code Documentation", "Code Version Control", "Code Collaboration", "Code Security", "Code Performance", "Code Scalability", "Code Maintainability", "Code Readability", "Code Reliability", "Code Testability", "Code Documentation", "Code Version Control", "Code Collaboration", "Code Security", "Code Performance", "Code Scalability", "Code Maintainability", "Code Readability", "Code Reliability", "Code Testability"]
   },
   {
     date: "2022 - Present",
     title: "Codecademy",
     company: "Codecademy",
-    description: "Completed online courses in many software engineering topics. Learned Python, JavaScript, React, Node.js, and more.",
-    technologies: ["JavaScript", "React", "Node.js", "PostgreSQL", "Python", "Flask", "AWS", "Docker", "Git", "CI/CD", "React", "Redux", "SQL", "REST"]
+    descriptionLine1: "• Completed 1000+ hours of online courses in many software engineering topics.",
+    descriptionLine2: "• Reinforced learning from the App Academy bootcamp.",
+    technologies: ["JavaScript", "Typescript", "React", "Node.js", "PostgreSQL", "Python", "Flask", "AWS", "Docker", "Git", "CI/CD", "React", "Redux", "SQL", "REST"]
   },
   {
     date: "2022 - Present",
     title: "Software Engineer",
     company: "Longwood University",
-    description: "Developed AI-powered art recommendation system for university art museum. Built mobile application for virtual museum tours.",
-    technologies: ["TensorFlow", "React Native", "Python", "Node.js", "AI", "React", "Redux", "SQL", "REST", "NoSQL", "AWS"]
+    descriptionLine1: "• Developed Art Collection Management Tool built on Redis, AI-powered art recommendation system for university art museum.",
+    descriptionLine2: "• Built mobile application for virtual museum tours.",
+    technologies: ["TensorFlow", "React Native", "Python", "Node.js", "AI", "React", "Redux", "SQL", "REST", "NoSQL", "AWS", "Redis", "REST", "Google Cloud Platform", "Authentication", "Authorization", "Testing" ]
   },
   {
     date: "2016 - 2018",
     title: "Self Taught Coding",
     company: "Self-Teaching",
-    description: "Self taught coding through online courses and tutorials. Learned JavaScript fundamentals.",
+    descriptionLine1: "• Self taught coding through Lynda.com online courses and tutorials.",
+    descriptionLine2: "• Learned JavaScript fundamentals.",
     technologies: ["JavaScript"]
   },
   {
     date: "2014 - 2015",
     title: "Freelance Portfolio Sites",
     company: "Self-Employed",
-    description: "Built portfolio sites for local businesses and organizations.",
+    descriptionLine1: "• Built portfolio sites for local businesses and organizations.",
     technologies: ["Adobe Dreamweaver", "HTML", "CSS", "Adobe Photoshop"]
   },
   {
     date: "2011 - 2013",
     title: "Graphic Design",
     company: "Maryland Institute College of Art",
-    description: "Learned graphic design and illustration which introduced me to Dreamweaver, HTML, CSS, and Photoshop.",
+    descriptionLine1: "• Learned graphic design and illustration which introduced me to Dreamweaver, HTML, CSS, and Photoshop.",
+    descriptionLine2: "• Went on to build my own portfilio site at the time, as well as some for other friends.",
     technologies: ["Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign", "Adobe Dreamweaver", "HTML", "CSS"]
   }
 ];
@@ -138,7 +147,10 @@ export default function Timeline() {
                           transition={{ duration: 0.2 }}
                           className="overflow-visible"
                         >
-                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.description}</p>
+                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine1}</p>
+                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine2}</p>
+                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine3}</p>
+                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine4}</p>
                           <div className="flex flex-wrap gap-2">
                             {item.technologies.map((tech, techIndex) => (
                               <span 
