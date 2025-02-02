@@ -92,7 +92,7 @@ export default function Home() {
                   exit={{ opacity: 0, y: 10 }}
                   className="absolute top-0 left-full ml-4 z-50"
                 >
-                  <BattleStatus />
+                  <BattleStatus onClose={() => setShowBattleStatus(false)} />
                 </motion.div>
               )}
             </AnimatePresence>

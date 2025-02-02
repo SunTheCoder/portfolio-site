@@ -1,5 +1,6 @@
 'use client';
 import { useGitHubLevel } from '@/contexts/GitHubLevelContext';
+import { motion } from 'framer-motion';
 
 // interface GitHubLevel {
 //   level: number;
@@ -12,12 +13,13 @@ import { useGitHubLevel } from '@/contexts/GitHubLevelContext';
 //   xp: number;
 // }
 
-export default function BattleStatus() {
+export default function BattleStatus({ onClose }: { onClose?: () => void }) {
   const { githubLevel, isLoading } = useGitHubLevel();
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   if (isLoading) {
     return (
-      <section className="w-[400px]">
+      <section className="w-[400px] max-w-[90vw]">
         <div className="border-4 border-gray-700 bg-gray-900 p-4 pixel-corners animate-pulse">
           <div className="h-40 bg-gray-800" />
         </div>
@@ -26,7 +28,15 @@ export default function BattleStatus() {
   }
 
   return (
-    <section className="w-[400px]">
+    <section className="w-[400px] max-w-[90vw] relative">
+      {isMobile && (
+        <button 
+          onClick={onClose}
+          className="absolute -top-2 right-0 text-white font-mono bg-green-600 hover:bg-green-500 px-2 py-1 rounded-t pixel-corners border-2 border-green-700 border-b-0 transition-colors"
+        >
+          CLOSE ▼
+        </button>
+      )}
       <div className="border-4 border-gray-700 bg-gray-900 p-4 pixel-corners">
         <div className="flex items-center gap-4 mb-4">
           {/* <div className="relative w-16 h-16">
