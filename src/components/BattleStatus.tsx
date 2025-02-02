@@ -1,6 +1,5 @@
 'use client';
 import { useGitHubLevel } from '@/contexts/GitHubLevelContext';
-import { motion } from 'framer-motion';
 
 // interface GitHubLevel {
 //   level: number;
