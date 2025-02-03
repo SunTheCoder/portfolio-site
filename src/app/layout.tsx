@@ -16,13 +16,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sun | Full Stack Developer",
-  description: "Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, and more. View my portfolio and projects.",
-  keywords: ["Full Stack Developer", "JavaScript", "TypeScript", "React", "Next.js"],
+  title: "Sun | Full Stack Software Engineer",
+  description: "Full Stack Software Engineer specializing in JavaScript, TypeScript, Python/Flask, React, and cloud architecture. Building accessible, scalable applications for museum tech, civic tech, and AI-driven systems.",
+  keywords: [
+    "Full Stack Engineer",
+    "Software Engineer",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Python",
+    "Flask",
+    "Cloud Architecture",
+    "AWS",
+    "Accessibility",
+    "Richmond",
+    "Virginia"
+  ],
   openGraph: {
-    title: "Sun | Full Stack Developer",
-    description: "Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, and more.",
-    images: ['/og-image.jpg'], // Add an OG image
+    title: "Sun | Full Stack Software Engineer",
+    description: "Building accessible, scalable applications with modern web technologies.",
+    type: "website",
+    locale: "en_US",
+    url: "https://sunthecoder.com",
+    siteName: "Sun's Portfolio",
+    images: [{
+      url: "/og-image.jpg",
+      width: 1200,
+      height: 630,
+      alt: "Sun's Portfolio Site"
+    }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sun | Full Stack Software Engineer",
+    description: "Building accessible, scalable applications with modern web technologies.",
+    images: ["/og-image.jpg"]
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "https://sunthecoder.com"
   }
 };
 
