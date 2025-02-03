@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface TooltipProps {
@@ -10,25 +10,42 @@ interface TooltipProps {
 
 export default function Tooltip({ text, children, className = "" }: TooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const tooltipId = useId();
 
   return (
     <div 
-      className={`relative inline-block ${className}`}
+      className={`relative inline-flex ${className}`}
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
+      onFocus={() => setIsVisible(true)}
+      onBlur={() => setIsVisible(false)}
+      role="tooltip"
+      aria-describedby={tooltipId}
     >
-      {children}
+      <div 
+        aria-label={text}
+        role="button"
+        tabIndex={0}
+        className="inline-flex"
+      >
+        {children}
+      </div>
       <AnimatePresence>
         {isVisible && (
           <motion.div
+            id={tooltipId}
+            role="tooltip"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             className="absolute z-50 px-2 py-1 text-sm text-white bg-gray-900 rounded-md whitespace-nowrap"
             style={{ 
               top: "100%",
-              left: "50%",
-              transform: "translateX(-50%)",
+              left: 0,
+              right: 0,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              width: 'max-content',
               marginTop: "0.5rem"
             }}
           >
@@ -40,6 +57,7 @@ export default function Tooltip({ text, children, className = "" }: TooltipProps
                 left: "50%",
                 transform: "translateX(-50%)"
               }}
+              aria-hidden="true"
             />
           </motion.div>
         )}
