@@ -14,7 +14,7 @@ function RetroExpBar({ value }: { value: number }) {
     const filledSegments = Math.floor((value / 100) * segments);
   
     return (
-      <div className="flex gap-[2px] w-full h-6">
+      <div className="flex gap-[2px] w-full h-6" role="progressbar" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100}>
         {[...Array(segments)].map((_, i) => (
           <div
             key={i}
@@ -46,20 +46,32 @@ export default function TechStack() {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-4 justify-center items-center">
+    <div 
+      className="flex flex-wrap gap-4 justify-center items-center"
+      role="list"
+      aria-label="Technology proficiencies"
+    >
       {icons.map((icon) => (
         <div 
           key={icon.name}
-          className="group relative flex items-center justify-center w-12 h-12 transition-transform hover:scale-110"
+          className="group relative flex items-center justify-center w-12 h-12 transition-transform hover:scale-110 focus-within:scale-110"
+          role="listitem"
         >
-          <Image
-            src={`/tech/${icon.path}`}
-            alt={icon.name}
-            width={48}
-            height={48}
-            className="object-contain"
-          />
-          <div className="absolute -top-24 scale-0 transition-all bg-gray-900 border-2 border-gray-700 p-3 text-xs text-white group-hover:scale-100 w-40 pixel-corners">
+          <button
+            className="w-full h-full focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
+            tabIndex={0}
+            aria-label={`${icon.name}: ${icon.proficiency}% proficiency, ${icon.yearsOfExperience} years experience`}
+          >
+            <Image
+              src={`/tech/${icon.path}`}
+              alt=""
+              width={48}
+              height={48}
+              className="object-contain"
+              aria-hidden="true"
+            />
+          </button>
+          <div className="absolute -top-24 scale-0 transition-all bg-gray-900 border-2 border-gray-700 p-3 text-xs text-white group-hover:scale-100 group-focus-within:scale-100 w-40 pixel-corners">
             <p className="text-center mb-2 font-bold pixel-font">{icon.name}</p>
             <RetroExpBar value={icon.proficiency} />
             <p className="text-center mt-2 text-[10px] text-gray-300 pixel-font">
