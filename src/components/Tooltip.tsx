@@ -50,15 +50,6 @@ export default function Tooltip({ text, children, className = "" }: TooltipProps
             }}
           >
             {text}
-            <div 
-              className="absolute w-2 h-2 bg-gray-900 rotate-45"
-              style={{
-                top: "-0.25rem",
-                left: "50%",
-                transform: "translateX(-50%)"
-              }}
-              aria-hidden="true"
-            />
           </motion.div>
         )}
       </AnimatePresence>

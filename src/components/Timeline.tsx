@@ -139,7 +139,7 @@ export default function Timeline() {
                     />
                   </div>
                   <div 
-                    className={`ml-10 flex-grow space-y-2 rounded-lg bg-white dark:bg-gray-800 p-4 shadow-lg transition-all hover:shadow-xl focus-within:shadow-xl focus-within:ring-2 focus-within:ring-blue-500 ${activeItem === index ? 'ring-2 ring-blue-500' : ''}`}
+                    className={`ml-10 flex-grow space-y-2 rounded-lg bg-white p-4 shadow-lg transition-all hover:shadow-xl focus-within:shadow-xl focus-within:ring-2 focus-within:ring-blue-500 ${activeItem === index ? 'ring-2 ring-blue-500' : ''}`}
                     tabIndex={0}
                     role="button"
                     aria-expanded={activeItem === index}
@@ -149,7 +149,7 @@ export default function Timeline() {
                     <div className="flex items-center justify-between">
                       <h3 className="text-lg font-bold">{item.title}</h3>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-500 dark:text-gray-400">{item.date}</span>
+                        <span className="text-sm text-gray-500">{item.date}</span>
                         <svg 
                           className={`w-5 h-5 transform transition-transform ${activeItem === index ? 'rotate-180' : ''}`} 
                           fill="none" 
@@ -161,7 +161,7 @@ export default function Timeline() {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 font-medium">{item.company}</p>
+                    <p className="text-gray-600 font-medium">{item.company}</p>
                     
                     <AnimatePresence>
                       {activeItem === index && (
@@ -173,16 +173,16 @@ export default function Timeline() {
                           className="overflow-visible"
                         >
                           {item.descriptionLine1 && (
-                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine1}</p>
+                            <p className="text-gray-600 mb-3">{item.descriptionLine1}</p>
                           )}
                           {item.descriptionLine2 && (
-                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine2}</p>
+                            <p className="text-gray-600 mb-3">{item.descriptionLine2}</p>
                           )}
                           {item.descriptionLine3 && (
-                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine3}</p>
+                            <p className="text-gray-600 mb-3">{item.descriptionLine3}</p>
                           )}
                           {item.descriptionLine4 && (
-                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine4}</p>
+                            <p className="text-gray-600 mb-3">{item.descriptionLine4}</p>
                           )}
                           <div 
                             className="flex flex-wrap gap-2"
@@ -192,7 +192,7 @@ export default function Timeline() {
                             {item.technologies.map((tech, techIndex) => (
                               <span 
                                 key={`${tech}-${techIndex}`}
-                                className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-2 py-1 rounded-full"
+                                className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
                                 role="listitem"
                               >
                                 {tech}

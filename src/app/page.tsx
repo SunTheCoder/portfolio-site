@@ -15,6 +15,7 @@ import AchievementPopup from '@/components/Achievement';
 import { useAchievements } from '@/contexts/AchievementContext';
 import XPBar from '@/components/XPBar';
 import BattleStatus from '@/components/BattleStatus';
+import ThemeToggle from '@/components/ThemeToggle';
 
 // Dynamically import the Map component with no SSR
 const MapWithNoSSR = dynamic(
@@ -103,6 +104,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex gap-4 items-center">
+          <ThemeToggle />
           <Tooltip text="Intro video coming soon!">
             <button
               className="px-4 py-2 text-gray-400 dark:text-gray-500 cursor-not-allowed transition-colors"
@@ -125,9 +127,9 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start w-full max-w-6xl">
         {/* Introduction Section */}
         <section id="intro-section" ref={introRef} className="w-full space-y-8">
-          <div className="prose dark:prose-invert max-w-none">
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              I&apos;m a Full Stack Developer specializing in JavaScript, TypeScript, Python/Flask, React, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
+          <div className="prose max-w-none">
+            <p className="text-lg">
+              I&apos;m a Full Stack Software Engineer specializing in JavaScript, TypeScript, Python/Flask, React, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
             </p>
           </div>
         </section>

@@ -94,7 +94,7 @@ export default function Projects() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {currentProjects.map((project) => (
-              <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+              <div key={project.id} className="bg-white rounded-lg shadow-lg p-6">
                 {project.imageUrl && (
                   <Image
                     src={project.imageUrl}
@@ -105,7 +105,7 @@ export default function Projects() {
                   />
                 )}
                 <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech) => (
                     <span

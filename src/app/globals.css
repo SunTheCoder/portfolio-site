@@ -3,20 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 255 255 255;
+  --foreground: 23 23 23;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[class~="dark"] {
+  --background: 10 10 10;
+  --foreground: 237 237 237;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -81,3 +79,32 @@ body {
 .custom-popup .leaflet-popup-tip {
   background: rgba(255, 255, 255, 0.95);
 }
+.bg-white {
+  background-color: white;
+}
+
+[class~="dark"] .bg-white {
+  background-color: rgb(31 41 55); /* This is equivalent to bg-gray-800 */
+}
+
+/* Timeline text (descriptions and dates) */
+.bg-white p,
+.bg-white span {
+  color: rgb(75 85 99); /* text-gray-600 */
+}
+
+[class~="dark"] .bg-white p,
+[class~="dark"] .bg-white span {
+  color: rgb(209 213 219); /* text-gray-300 */
+}
+
+/* Technology tags text */
+.bg-blue-100 {
+  color: rgb(30 64 175); /* text-blue-800 */
+}
+
+[class~="dark"] .bg-blue-100 {
+  background-color: rgb(30 58 138); /* bg-blue-900 */
+  color: rgb(219 234 254); /* text-blue-100 */
+}
+
