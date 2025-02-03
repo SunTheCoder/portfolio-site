@@ -103,10 +103,10 @@ export default function Home() {
           </div>
         </div>
         <div className="flex gap-4 items-center">
-          <Tooltip text="Watch a quick intro about me">
+          <Tooltip text="Intro video coming soon!">
             <button
-              onClick={() => setIsVideoModalOpen(true)}
-              className="px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              className="px-4 py-2 text-gray-400 dark:text-gray-500 cursor-not-allowed transition-colors"
+              disabled
             >
               Watch Intro ▶️
             </button>
