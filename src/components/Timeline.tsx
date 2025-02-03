@@ -86,11 +86,20 @@ export default function Timeline() {
     }
   };
 
+  const handleTimelineKeyPress = (e: React.KeyboardEvent, index: number) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleTimelineClick(index);
+    }
+  };
+
   return (
     <div className="space-y-4">
       <button
         onClick={() => setIsCollapsed(!isCollapsed)}
         className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+        aria-expanded={!isCollapsed}
+        aria-controls="timeline-content"
       >
         <span>{isCollapsed ? 'Show' : 'Hide'} Timeline</span>
         <svg 
@@ -98,6 +107,7 @@ export default function Timeline() {
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
@@ -106,20 +116,34 @@ export default function Timeline() {
       <AnimatePresence>
         {!isCollapsed && (
           <motion.div
+            id="timeline-content"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="overflow-visible"
+            role="list"
+            aria-label="Career timeline"
           >
             <div className="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:bg-gray-200 dark:before:bg-gray-700">
               {timelineData.map((item, index) => (
-                <div key={index} className="relative flex items-start group">
+                <div 
+                  key={index} 
+                  className="relative flex items-start group"
+                  role="listitem"
+                >
                   <div className="flex flex-col items-center">
-                    <div className={`absolute left-0 h-4 w-4 rounded-full border-2 border-blue-500 bg-white dark:bg-gray-900 transition-colors ${activeItem === index ? 'bg-blue-500' : ''}`} />
+                    <div 
+                      className={`absolute left-0 h-4 w-4 rounded-full border-2 border-blue-500 bg-white dark:bg-gray-900 transition-colors ${activeItem === index ? 'bg-blue-500' : ''}`}
+                      aria-hidden="true"
+                    />
                   </div>
                   <div 
-                    className={`ml-10 flex-grow cursor-pointer space-y-2 rounded-lg bg-white dark:bg-gray-800 p-4 shadow-lg transition-all hover:shadow-xl ${activeItem === index ? 'ring-2 ring-blue-500' : ''}`}
+                    className={`ml-10 flex-grow space-y-2 rounded-lg bg-white dark:bg-gray-800 p-4 shadow-lg transition-all hover:shadow-xl focus-within:shadow-xl focus-within:ring-2 focus-within:ring-blue-500 ${activeItem === index ? 'ring-2 ring-blue-500' : ''}`}
+                    tabIndex={0}
+                    role="button"
+                    aria-expanded={activeItem === index}
+                    onKeyDown={(e) => handleTimelineKeyPress(e, index)}
                     onClick={() => handleTimelineClick(index)}
                   >
                     <div className="flex items-center justify-between">
@@ -131,6 +155,7 @@ export default function Timeline() {
                           fill="none" 
                           stroke="currentColor" 
                           viewBox="0 0 24 24"
+                          aria-hidden="true"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
@@ -147,15 +172,28 @@ export default function Timeline() {
                           transition={{ duration: 0.2 }}
                           className="overflow-visible"
                         >
-                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine1}</p>
-                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine2}</p>
-                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine3}</p>
-                          <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine4}</p>
-                          <div className="flex flex-wrap gap-2">
+                          {item.descriptionLine1 && (
+                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine1}</p>
+                          )}
+                          {item.descriptionLine2 && (
+                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine2}</p>
+                          )}
+                          {item.descriptionLine3 && (
+                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine3}</p>
+                          )}
+                          {item.descriptionLine4 && (
+                            <p className="text-gray-600 dark:text-gray-300 mb-3">{item.descriptionLine4}</p>
+                          )}
+                          <div 
+                            className="flex flex-wrap gap-2"
+                            role="list"
+                            aria-label="Technologies used"
+                          >
                             {item.technologies.map((tech, techIndex) => (
                               <span 
                                 key={`${tech}-${techIndex}`}
                                 className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 px-2 py-1 rounded-full"
+                                role="listitem"
                               >
                                 {tech}
                               </span>
