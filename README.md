@@ -159,6 +159,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Visuals
 
-![Portfolio Screenshot](./portfolio-site/public/projects/portfolio-site.png)
+![Portfolio Screenshot](https://github.com/SunTheCoder/portfolio-site/blob/main/public/projects/portfolio-site.png?raw=true)
 
-[![Vercel](https://vercelbadge.vercel.app/api/your-username/portfolio-site)](https://portfolio-site.vercel.app/)
+[![Vercel](https://vercelbadge.vercel.app/api/sunthecoder/portfolio-site)](https://sunthecoder.com/)
