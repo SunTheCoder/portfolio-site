@@ -99,7 +99,7 @@ export default function BattleStatus({ onClose }: { onClose?: () => void }) {
           <p>COMPANION: Fern the Dog</p>
           <p>FACTION: Horde</p>
           <p>GUILD: The Coder&apos;s Guild</p>
-          <p>STATS:</p>
+          <p>GIT STATS:</p>
           <div className="pl-4 text-sm">
             <p>COMMITS: {githubLevel?.stats.contributions || 0}</p>
             <p>REPOSITORIES: {githubLevel?.stats.repositories || 0}</p>
