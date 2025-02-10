@@ -100,7 +100,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col">
             <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
-            <h4 className="text-md font-bold">Full Stack Developer residing in Richmond, VA</h4>
+            <h4 className="text-md font-bold">Full Stack Software Engineer residing in Richmond, VA</h4>
           </div>
         </div>
         <div className="flex gap-4 items-center">
