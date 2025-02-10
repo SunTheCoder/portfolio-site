@@ -29,8 +29,8 @@ const initialProjects = [
   {
     id: 'cec-website',
     name: 'Clean Energy Connectors',
-    description: 'Full-Stack application using React, JavaScript, Python, Flask, Redux, TailwindCSS, Leaflet to map ArcGis and GeoJson data in order to build a more streamlined connection to grant funding and grant information for Indigenous Nations.',
-    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Leaflet', 'AWS', 'Python', 'Flask', 'Redux', 'ArcGis', 'GeoJson', 'Postgres', 'Docker'],
+    description: 'An extremely lightweight, yet powerful Full-Stack application using React, JavaScript, Next.js, TailwindCSS, and Mapbox to map ArcGis and GeoJson data in order to build a more streamlined connection to grant funding and grant information for distressed and disadvantaged communities.',
+    technologies: ['Next.js', 'React', 'Tailwind CSS', 'Mapbox', 'AWS', 'ArcGIS', 'GeoJSON', 'Supabase'],
     link: 'https://ceconnectors.org',
     imageUrl: '/projects/cec-map.png',
   },

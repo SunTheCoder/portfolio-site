@@ -30,7 +30,7 @@ const timelineData: TimelineItem[] = [
       "Millions of interactive data points processed and visualized on the map lightning fast"
     ],
     challenge: {
-      context: "I was tasked with mapping over 1.5GB of ArcGIS data into an interactive web application. My first instinct was to leverage Leaflet and OpenStreetMap, technologies I had successfully used in the past for GeoJSON-based mapping.",
+      context: "I was tasked with mapping over 1.5GB of ArcGIS data into an interactive web application. My first instinct was to leverage Leaflet and OpenStreetMap, technologies I had successfully used in the past for GeoJSON-based mapping...",
       iterations: [
         {
           title: "Initial Approach",
