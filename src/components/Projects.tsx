@@ -79,7 +79,7 @@ export default function Projects() {
 
   return (
     <div className="space-y-4">
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden p-8">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={currentPage}
