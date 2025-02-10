@@ -7,68 +7,107 @@ interface TimelineItem {
   date: string;
   title: string;
   company: string;
-  descriptionLine1?: string;
-  descriptionLine2?: string;
-  descriptionLine3?: string;
-  descriptionLine4?: string;
+  story: string[];
+  challenge?: {
+    context: string;
+    iterations: {
+      title: string;
+      description: string;
+    }[];
+    outcome: string;
+  };
   technologies: string[];
 }
 
 const timelineData: TimelineItem[] = [
   {
     date: "2024 - Present",
-    title: "Software Engineer",
+    title: "Full Stack Software Engineer",
     company: "Amerind Nation",
-    descriptionLine1: `• Led development of a platform connecting Indigenous Nations with clean energy funding opportunities.`,
-    descriptionLine2: `• Implemented scalable, GIS mapping features and grant management system.`,
-    technologies: ["Next.js", "React", "Python/Flask", "PostgreSQL", "AWS", "GIS"]
+    story: [
+      "Led development of a platform connecting Indigenous Nations with clean energy funding opportunities",
+      "Implemented scalable, GIS mapping features",
+      "Millions of interactive data points processed and visualized on the map lightning fast"
+    ],
+    challenge: {
+      context: "I was tasked with mapping over 1.5GB of ArcGIS data into an interactive web application. My first instinct was to leverage Leaflet and OpenStreetMap, technologies I had successfully used in the past for GeoJSON-based mapping.",
+      iterations: [
+        {
+          title: "Initial Approach",
+          description: "Built a React/Redux frontend with a Flask backend. The map worked—I successfully displayed searchable, interactive GeoJSON data with pop-ups and filtering. However, performance was unacceptable with 20-second load times and screen freezes."
+        },
+        {
+          title: "Streamlined Architecture",
+          description: "Switched to Next.js for server-side rendering and removed the backend entirely. While the new setup worked, client-side map loading still struggled with large GeoJSON files."
+        },
+        {
+          title: "Final Solution",
+          description: "Discovered vector tiling to drastically reduce file sizes while maintaining geographic precision. Developed a custom script to convert and upload the 1.5GB dataset to AWS as Mapbox vector tiles."
+        }
+      ],
+      outcome: "🚀 Reduced geo-spatial data size from 1.5GB to under 500KB\n⚡️ Load times dropped from ~20s to under 2s\n🗺 Achieved smooth rendering with near-instant interactivity\n🔧 Developed a custom script to convert and upload the 1.5GB dataset to AWS as Mapbox vector tiles.\n💃🏽 Improved user experience by having a visually pleasing, responsive, and more interactive map."
+    },
+    technologies: ["Next.js", "React", "Python/Flask", "PostgreSQL", "AWS", "GIS", "Mapbox", "Leaflet", "OpenStreetMap", "GeoJSON", "Vector Tiles", "Server-Side Rendering", "Client-Side Rendering", "Performance Optimization", "Data Visualization", "Interactive Maps", "Geospatial Development"]
+  },
+  {
+    date: "2022 - Present",
+    title: "Full Stack Software Engineer",
+    company: "Longwood University",
+    story: [
+      "Developed Art Collection Management Tool built on Redis, AI-powered art recommendation system for university art museum.",
+      "Built mobile application for virtual museum tours.",
+    ],
+    technologies: ["TensorFlow", "React Native", "Python", "Node.js", "AI", "React", "Redux", "SQL", "REST", "NoSQL", "AWS", "Redis", "REST", "Google Cloud Platform", "Authentication", "Authorization", "Testing" ]
   },
   {
     date: "2024 - 2025",
     title: "App Academy Full-Time Year long Bootcamp",
     company: "App Academy",
-    descriptionLine1: "• Completed a rigorous 800+ hour, year long coding bootcamp focused on full stack web development at one of the top 10 coding bootcamps in the country.",
-    descriptionLine2: "• Spent 1500+ additional hours studying and building my own projects",
+    story: [
+      "Completed a rigorous 800+ hour, year long coding bootcamp focused on full stack web development",
+      "Spent 1500+ additional hours studying and building my own projects",
+      "Mastered modern web development practices and methodologies"
+    ],
     technologies: ["JavaScript", "React", "Node.js", "PostgreSQL", "Python", "Flask", "AWS", "Docker", "Git", "CI/CD", "React", "Redux", "SQL", "REST", "Authentication", "Authorization", "Testing", "Debugging", "Deployment", "Scrum", "Kanban", "Project Management", "Code Review", "Pair Programming", "Code Refactoring", "Code Optimization", "Code Documentation", "Code Version Control", "Code Collaboration", "Code Security", "Code Performance", "Code Scalability", "Code Maintainability", "Code Readability", "Code Reliability", "Code Testability", "Code Documentation", "Code Version Control", "Code Collaboration", "Code Security", "Code Performance", "Code Scalability", "Code Maintainability", "Code Readability", "Code Reliability", "Code Testability"]
   },
   {
     date: "2022 - Present",
     title: "Codecademy",
     company: "Codecademy",
-    descriptionLine1: "• Completed 1000+ hours of online courses in many software engineering topics.",
-    descriptionLine2: "• Reinforced learning from the App Academy bootcamp.",
+    story: [
+      "Completed 1000+ hours of online courses in many software engineering topics.",
+      "Reinforced learning from the App Academy bootcamp.",
+    ],
     technologies: ["JavaScript", "Typescript", "React", "Node.js", "PostgreSQL", "Python", "Flask", "AWS", "Docker", "Git", "CI/CD", "React", "Redux", "SQL", "REST"]
-  },
-  {
-    date: "2022 - Present",
-    title: "Software Engineer",
-    company: "Longwood University",
-    descriptionLine1: "• Developed Art Collection Management Tool built on Redis, AI-powered art recommendation system for university art museum.",
-    descriptionLine2: "• Built mobile application for virtual museum tours.",
-    technologies: ["TensorFlow", "React Native", "Python", "Node.js", "AI", "React", "Redux", "SQL", "REST", "NoSQL", "AWS", "Redis", "REST", "Google Cloud Platform", "Authentication", "Authorization", "Testing" ]
   },
   {
     date: "2016 - 2018",
     title: "Self Taught Coding",
-    company: "Self-Teaching",
-    descriptionLine1: "• Self taught coding through Lynda.com online courses and tutorials.",
-    descriptionLine2: "• Learned JavaScript fundamentals.",
+    company: "Lynda",
+    story: [
+      "Self taught coding through Lynda.com online courses and tutorials.",
+      "Learned JavaScript fundamentals.",
+    ],
     technologies: ["JavaScript"]
   },
   {
     date: "2014 - 2015",
     title: "Freelance Portfolio Sites",
     company: "Self-Employed",
-    descriptionLine1: "• Built portfolio sites for local businesses and organizations.",
+    story: [
+      "Built portfolio sites for local businesses and organizations.",
+    ],
     technologies: ["Adobe Dreamweaver", "HTML", "CSS", "Adobe Photoshop"]
   },
   {
     date: "2011 - 2013",
     title: "Graphic Design",
     company: "Maryland Institute College of Art",
-    descriptionLine1: "• Learned graphic design and illustration which introduced me to Dreamweaver, HTML, CSS, and Photoshop.",
-    descriptionLine2: "• Went on to build my own portfilio site at the time, as well as some for other friends.",
-    technologies: ["Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign", "Adobe Dreamweaver", "HTML", "CSS"]
+    story: [
+      "Learned graphic design and illustration which introduced me to Dreamweaver, HTML, CSS, and Photoshop.",
+      "Went on to build my own portfilio site at the time, as well as some for other friends.",
+    ],
+    technologies: ["Adobe Photoshop", "Adobe Illustrator", "Adobe InDesign", "Adobe Dreamweaver", "UI/UX Design", "HTML", "CSS"]
   }
 ];
 
@@ -147,7 +186,7 @@ export default function Timeline() {
                     onClick={() => handleTimelineClick(index)}
                   >
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-bold">{item.title}</h3>
+                      <h3 className="text-xl font-bold">{item.title}</h3>
                       <div className="flex items-center gap-2">
                         <span className="text-sm text-gray-500">{item.date}</span>
                         <svg 
@@ -161,7 +200,7 @@ export default function Timeline() {
                         </svg>
                       </div>
                     </div>
-                    <p className="text-gray-600 font-medium">{item.company}</p>
+                    <p className="text-gray-600 font-bold text-lg">{item.company}</p>
                     
                     <AnimatePresence>
                       {activeItem === index && (
@@ -170,20 +209,45 @@ export default function Timeline() {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="overflow-visible"
+                          className="overflow-visible space-y-6"
                         >
-                          {item.descriptionLine1 && (
-                            <p className="text-gray-600 mb-3">{item.descriptionLine1}</p>
+                          {/* Key Achievements */}
+                          <div className="space-y-4">
+                            {item.story.map((point, i) => (
+                              <p key={i} className="text-gray-600 dark:text-gray-300 pl-4">
+                                • {point}
+                              </p>
+                            ))}
+                          </div>
+
+                          {/* Technical Challenge */}
+                          {item.challenge && (
+                            <div className="space-y-4">
+                              <h3 className="text-medium font-bold text-gray-700 dark:text-gray-200 italic">Technical Challenge</h3>
+                              <p className="text-gray-600 dark:text-gray-300">
+                                {item.challenge.context}
+                              </p>
+                              
+                              {item.challenge.iterations.map((iteration, i) => (
+                                <div key={i} className="pl-4">
+                                  <h4 className="font-bold text-gray-700 dark:text-gray-200 mb-2">
+                                    {iteration.title}
+                                  </h4>
+                                  <p className="text-gray-600 dark:text-gray-300">
+                                    • {iteration.description}
+                                  </p>
+                                </div>
+                              ))}
+
+                              <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                                <p className="font-mono text-sm whitespace-pre-line text-gray-600 dark:text-gray-300">
+                                  {item.challenge.outcome}
+                                </p>
+                              </div>
+                            </div>
                           )}
-                          {item.descriptionLine2 && (
-                            <p className="text-gray-600 mb-3">{item.descriptionLine2}</p>
-                          )}
-                          {item.descriptionLine3 && (
-                            <p className="text-gray-600 mb-3">{item.descriptionLine3}</p>
-                          )}
-                          {item.descriptionLine4 && (
-                            <p className="text-gray-600 mb-3">{item.descriptionLine4}</p>
-                          )}
+
+                          {/* Technologies */}
                           <div 
                             className="flex flex-wrap gap-2"
                             role="list"
