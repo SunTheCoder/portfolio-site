@@ -1,5 +1,6 @@
 'use client';
 import { useGitHubLevel } from '@/contexts/GitHubLevelContext';
+import { useState, useEffect } from 'react';
 
 // interface GitHubLevel {
 //   level: number;
@@ -12,9 +13,32 @@ import { useGitHubLevel } from '@/contexts/GitHubLevelContext';
 //   xp: number;
 // }
 
+interface LeetCodeStats {
+  totalSolved: number;
+  easySolved: number;
+  mediumSolved: number;
+  hardSolved: number;
+  acceptanceRate: string;
+  ranking: number;
+}
+
 export default function BattleStatus({ onClose }: { onClose?: () => void }) {
   const { githubLevel, isLoading } = useGitHubLevel();
+  const [leetCodeStats, setLeetCodeStats] = useState<LeetCodeStats | null>(null);
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  useEffect(() => {
+    async function fetchLeetCodeStats() {
+      try {
+        const response = await fetch('/api/leetcode-stats');
+        const data = await response.json();
+        setLeetCodeStats(data);
+      } catch (error) {
+        console.error('Error fetching LeetCode stats:', error);
+      }
+    }
+    fetchLeetCodeStats();
+  }, []);
 
   if (isLoading) {
     return (
@@ -84,6 +108,20 @@ export default function BattleStatus({ onClose }: { onClose?: () => void }) {
           </div>
           <p>UNIQUE SKILL: &quot;Done Yesterday&quot;</p>
           <p>WEAKNESS: Fern the Dog</p>
+          
+          {leetCodeStats && (
+            <>
+              <p>LEETCODE STATS:</p>
+              <div className="pl-4 text-sm">
+                <p>PROBLEMS SOLVED: {leetCodeStats.totalSolved}</p>
+                <p>EASY: {leetCodeStats.easySolved}</p>
+                <p>MEDIUM: {leetCodeStats.mediumSolved}</p>
+                <p>HARD: {leetCodeStats.hardSolved}</p>
+                {/* <p>ACCEPTANCE RATE: {leetCodeStats.acceptanceRate}%</p> */}
+                <p>RANKING: #{leetCodeStats.ranking}</p>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>
