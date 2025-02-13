@@ -39,7 +39,7 @@ const initialProjects = [
     name: 'Care Map',
     description: 'This repo is a full stack application using JavaScript, React, Redux, Vite, Supabase, Leaflet Maps, Open Cage Geolocation, MetaMask/Infura API for crypto wallet management.',
     technologies: ['React', 'Leaflet', 'TypeScript', 'Supabase', 'Open Cage Geolocation', 'MetaMask/Infura API', 'Vite', 'Redux', 'ChakraUI', 'Web Sockets'],
-    link: 'https://github.com/SunTheCoder/Communityv2',
+    link: 'https://communityv2-lyart.vercel.app/',
     imageUrl: '/projects/care-map.png',
   },
   {
