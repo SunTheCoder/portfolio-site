@@ -74,7 +74,7 @@ const timelineData: TimelineItem[] = [
           description: "Extended the system to a Swift/iOS mobile application, making the art recommendation system accessible to museum visitors on-site through their personal devices."
         }
       ],
-      outcome: "🎨 Successfully processed complex emotional inputs for art recommendations\n🚀 Reduced response time from seconds to near-instant\n📱 Deployed mobile app increasing museum engagement\n🤖 Achieved high accuracy in emotional-art matching\n💡 Enhanced museum experience for 10,000+ annual visitors"
+      outcome: "🎨 Successfully processed complex emotional inputs for art recommendations\n📱 Deployed mobile app increasing museum engagement\n🤖 Achieved high accuracy in emotional-art matching\n💡 Enhanced museum experience for 10,000+ annual visitors"
     },
     technologies: ["Python", "Flask", "Swift", "SwiftUI", "TensorFlow", "Keras", "LangChain", "OpenAI", "React Native", "Next.js", "FastAPI", "AI/ML"]
   },
