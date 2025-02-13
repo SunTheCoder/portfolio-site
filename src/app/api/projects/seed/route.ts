@@ -47,7 +47,7 @@ const initialProjects = [
     name: 'Art-Recc',
     description: 'This repo is an AI Art Recommendation tool built with TensorFlow and Keras; using a dataset that I am creating and actively testing. To be used in the LCVA Portal mobile application I am building for Longwood University.',
     technologies: ['Python', 'TensorFlow', 'Keras'],
-    link: 'https://github.com/SunTheCoder/ArtRecc',
+    link: 'https://github.com/SunTheCoder/lcva-ai',
     imageUrl: '/projects/art-recommendation.png',
   },
   {
