@@ -198,37 +198,44 @@ export default function Timeline() {
                   </div>
                   <div 
                     className={`ml-10 flex-grow space-y-2 rounded-lg bg-white p-4 shadow-lg transition-all hover:shadow-xl focus-within:shadow-xl focus-within:ring-2 focus-within:ring-blue-500 ${activeItem === index ? 'ring-2 ring-blue-500' : ''}`}
-                    tabIndex={0}
-                    role="button"
-                    aria-expanded={activeItem === index}
-                    onKeyDown={(e) => handleTimelineKeyPress(e, index)}
-                    onClick={() => handleTimelineClick(index)}
+                    style={{ minHeight: activeItem === index ? '200px' : 'auto' }}
                   >
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-xl font-bold">{item.title}</h3>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-500">{item.date}</span>
-                        <svg 
-                          className={`w-5 h-5 transform transition-transform ${activeItem === index ? 'rotate-180' : ''}`} 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      aria-expanded={activeItem === index}
+                      onKeyDown={(e) => handleTimelineKeyPress(e, index)}
+                      onClick={() => handleTimelineClick(index)}
+                    >
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-xl font-bold">{item.title}</h3>
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm text-gray-500">{item.date}</span>
+                          <svg 
+                            className={`w-5 h-5 transform transition-transform ${activeItem === index ? 'rotate-180' : ''}`} 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
                       </div>
+                      <p className="text-gray-600 font-bold text-lg">{item.company}</p>
                     </div>
-                    <p className="text-gray-600 font-bold text-lg">{item.company}</p>
-                    
+
                     <AnimatePresence>
                       {activeItem === index && (
                         <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.2 }}
-                          className="overflow-visible space-y-6"
+                          initial={{ opacity: 0, y: -20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ 
+                            duration: 0.2,
+                            ease: "easeOut"
+                          }}
+                          className="space-y-6"
                         >
                           {/* Key Achievements */}
                           <div className="space-y-4">
