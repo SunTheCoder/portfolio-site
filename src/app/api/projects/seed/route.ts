@@ -44,7 +44,7 @@ const initialProjects = [
   },
   {
     id: 'art-recommendation',
-    name: 'Art Reccomender',
+    name: 'Art Recommender',
     description: 'This repo is an AI Art Recommendation tool built with LangChain and OpenAI; using a dataset that I am creating and actively testing. To be used in the LCVA Portal mobile application I am building for Longwood University. Previous versions of this project used TensorFlow and Keras.',
     technologies: ['TypeScript', 'Python', 'Flask', 'TensorFlow', 'Keras', 'LangChain', 'OpenAI', 'Next.js', 'FastAPI', 'TailwindCSS'],
     link: 'https://lcva-ai.vercel.app/',
