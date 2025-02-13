@@ -54,10 +54,29 @@ const timelineData: TimelineItem[] = [
     title: "Full Stack Software Engineer",
     company: "Longwood University",
     story: [
-      "Developed Art Collection Management Tool built on Redis, AI-powered art recommendation system for university art museum.",
-      "Built mobile application for virtual museum tours.",
+      "Developed an AI-powered art recommendation system bridging emotions and art for the university museum",
+      "Built mobile application for virtual museum tours using React Native",
+      "Enhanced museum experience for 10,000+ annual visitors through innovative AI solutions"
     ],
-    technologies: ["TensorFlow", "React Native", "Python", "Node.js", "AI", "React", "Redux", "SQL", "REST", "NoSQL", "AWS", "Redis", "REST", "Google Cloud Platform", "Authentication", "Authorization", "Testing" ]
+    challenge: {
+      context: "The project aimed to create an AI-powered system that could connect users with artworks based on their emotional states. The challenge was to build a solution that could understand complex emotional contexts and provide meaningful art recommendations in real-time.",
+      iterations: [
+        {
+          title: "TensorFlow/Keras Foundation",
+          description: "Built the initial version using Python Flask and TensorFlow/Keras. Created a custom neural network trained on a hand-curated emotional-art dataset. While highly precise, it faced scalability challenges and required significant compute resources."
+        },
+        {
+          title: "LangChain/OpenAI Evolution",
+          description: "Reimagined the system using Next.js, FastAPI, and LangChain/OpenAI. This brought greater flexibility in processing unstructured user inputs and enabled real-time recommendations without extensive model computations."
+        },
+        {
+          title: "Mobile Integration",
+          description: "Extended the system to a Swift/iOS mobile application, making the art recommendation system accessible to museum visitors on-site through their personal devices."
+        }
+      ],
+      outcome: "🎨 Successfully processed complex emotional inputs for art recommendations\n🚀 Reduced response time from seconds to near-instant\n📱 Deployed mobile app increasing museum engagement\n🤖 Achieved high accuracy in emotional-art matching\n💡 Enhanced museum experience for 10,000+ annual visitors"
+    },
+    technologies: ["Python", "Flask", "Swift", "SwiftUI", "TensorFlow", "Keras", "LangChain", "OpenAI", "React Native", "Next.js", "FastAPI", "AI/ML"]
   },
   {
     date: "2024 - 2025",
