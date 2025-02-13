@@ -55,7 +55,7 @@ const timelineData: TimelineItem[] = [
     company: "Longwood University",
     story: [
       "Developed an AI-powered art recommendation system bridging emotions and art for the university museum",
-      "Built mobile application for virtual museum tours using React Native",
+      "Built mobile application for virtual museum tours using Swift/SwiftUI",
       "Enhanced museum experience for 10,000+ annual visitors through innovative AI solutions"
     ],
     challenge: {
