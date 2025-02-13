@@ -45,8 +45,8 @@ const initialProjects = [
   {
     id: 'art-recommendation',
     name: 'Art-Recc',
-    description: 'This repo is an AI Art Recommendation tool built with TensorFlow and Keras; using a dataset that I am creating and actively testing. To be used in the LCVA Portal mobile application I am building for Longwood University.',
-    technologies: ['Python', 'TensorFlow', 'Keras', 'LangChain', 'OpenAI'],
+    description: 'This repo is an AI Art Recommendation tool built with LangChain and OpenAI; using a dataset that I am creating and actively testing. To be used in the LCVA Portal mobile application I am building for Longwood University. Previous versions of this project used TensorFlow and Keras.',
+    technologies: ['Python', 'Flask', 'TensorFlow', 'Keras', 'LangChain', 'OpenAI'],
     link: 'https://lcva-ai.vercel.app/',
     imageUrl: '/projects/art-recommendation.png',
   },
