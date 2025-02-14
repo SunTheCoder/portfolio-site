@@ -62,7 +62,7 @@ const initialProjects = [
     id: 'crypto-predictor',
     name: 'Crypto Predictor',
     description: 'An AI agent for predicting the price of a crypto currency using LLMs and a dataset of historical price data.',
-    technologies: ['Python', 'Flask', 'TensorFlow', 'Keras', 'LangChain', 'OpenAI', 'Next.js', 'FastAPI', 'TailwindCSS'],
+    technologies: ['Python', 'Flask', 'LangChain', 'OpenAI', 'Next.js', 'FastAPI', 'TailwindCSS', 'Web3'],
     link: 'https://github.com/SunTheCoder/crypto-predictor-ai',
     imageUrl: '/projects/crypto-predictor.png',
   }
