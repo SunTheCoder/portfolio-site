@@ -57,6 +57,14 @@ const initialProjects = [
     technologies: ["JavaScript", "Redis", "Next.js", "React", "TailwindCSS", "Vercel"],
     link: 'https://next-vercel-kv-demo.vercel.app/',
     imageUrl: '/projects/redis-gallery.png',
+  },
+  {
+    id: 'crypto-predictor',
+    name: 'Crypto Predictor',
+    description: 'An AI agent for predicting the price of a crypto currency using LLMs and a dataset of historical price data.',
+    technologies: ['Python', 'Flask', 'TensorFlow', 'Keras', 'LangChain', 'OpenAI', 'Next.js', 'FastAPI', 'TailwindCSS'],
+    link: 'https://github.com/SunTheCoder/crypto-predictor-ai',
+    imageUrl: '/projects/crypto-predictor.png',
   }
 ];
 // Visit /api/projects/seed in your browser to trigger the seeding. Then visit /api/projects to verify the projects are there. 
