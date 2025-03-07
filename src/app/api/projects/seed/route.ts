@@ -7,7 +7,7 @@ const initialProjects = [
     name: 'LCVA Portal',
     description: 'In development is an iOS application for Longwood University/the Longwood Center of Visual Arts. The application, utilizing Swift/SwiftUI and Python/Flask, aims to enhance education, engagement, and business analytics across the campus. The application is designed to be scalable to accommodate the evolving needs of the organization.',
     technologies: ['Swift', 'SwiftUI', 'Python', 'Flask', 'Firebase', 'Firestore'],
-    link: 'https://github.com/SunTheCoder/LCVASwiftPortal',
+    link: 'https://drive.google.com/file/d/13FbR3nC3WNJOTzx8ok3E77sJSkb_DKba/view?usp=sharing',
     imageUrl: '/projects/lcva-portal.png',
   },
   {
