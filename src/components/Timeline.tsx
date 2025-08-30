@@ -51,12 +51,20 @@ const timelineData: TimelineItem[] = [
   },
   {
     date: "2022 - Present",
-    title: "Full Stack Software Engineer",
+    title: "Technical Project Manager",
     company: "Longwood University",
     story: [
-      "Developed an AI-powered art recommendation system bridging emotions and art for the university museum",
-      "Built mobile application for virtual museum tours using Swift/SwiftUI",
-      "Enhanced museum experience for 10,000+ annual visitors through innovative AI solutions"
+      "Developed an AI-powered art recommendation system bridging emotions and art for the university museum.",
+      "Built mobile application for virtual museum tours using Swift/SwiftUI.",
+      "Enhanced museum experience for 10,000+ annual visitors through innovative AI solutions.",
+      "Delivered 20+ exhibitions from concept through installation, balancing curatorial vision with technical feasibility and safety, under academic and community deadlines.",
+      "Manage day-to-day movement of assets across campus, as well as 2-3 year exhibition schedule.",
+      "Produced detailed 3D models (SketchUp, Maya) and physical prototypes to guide fabrication, risk management, spatial planning, and stakeholder approval.",
+      "Created and updated operational documentation, accreditation materials, and safety protocols, ensuring compliance and enabling new functional spaces.",
+      "Assessed feasibility and risks, shaping design decisions and influencing the storytelling approach for each exhibition.",
+      "Partnered with curators, Board of Visitors, University Execs, collections managers, and leadership to align design intent, accessibility standards, and visitor experience goals.",
+      "Supported exhibitions that contributed to the museum’s regional and national recognition, reinforcing Longwood’s reputation as a cultural hub.",
+      "Leveraged surveys and community feedback to inform exhibition planning, improving decisions around artist selection, content, accessibility, and audience needs.",
     ],
     challenge: {
       context: "The project aimed to create an AI-powered system that could connect users with artworks based on their emotional states. The challenge was to build a solution that could understand complex emotional contexts and provide meaningful art recommendations in real-time.",
