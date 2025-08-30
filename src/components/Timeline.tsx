@@ -23,11 +23,14 @@ const timelineData: TimelineItem[] = [
   {
     date: "2024 - Present",
     title: "Full Stack Software Engineer",
-    company: "Amerind Nation",
+    company: "Flying Over Time",
     story: [
-      "Led development of a platform connecting Indigenous Nations with clean energy funding opportunities",
-      "Implemented scalable, GIS mapping features",
-      "Millions of interactive data points processed and visualized on the map lightning fast"
+      "Orchestrated dependency-driven schedules, ensuring interrelated milestones across design, engineering, marketing, and external vendors were aligned and delivered on time.",
+      "Assessed risk with different proposed / prototyped technologies.",
+      "Led development of features improving data access and performance for interactive map tools.",
+      "Collaborated with leadership to align product decisions with user feedback and startup goals.",
+
+
     ],
     challenge: {
       context: "I was tasked with mapping over 1.5GB of ArcGIS data into an interactive web application. My first instinct was to leverage Leaflet and OpenStreetMap, technologies I had successfully used in the past for GeoJSON-based mapping...",
