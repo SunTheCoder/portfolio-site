@@ -58,6 +58,7 @@ const timelineData: TimelineItem[] = [
     company: "Longwood University",
     story: [
       "Developed an AI-powered art recommendation system bridging emotions and art for the university museum.",
+      "Initiated an Interactive Media program at LCVA, focusing on the creation of digitial, web, and physical experiences, as well as other media, ensuring accessibility.",
       "Built mobile application for virtual museum tours using Swift/SwiftUI.",
       "Enhanced museum experience for 10,000+ annual visitors through innovative AI solutions.",
       "Delivered 20+ exhibitions from concept through installation, balancing curatorial vision with technical feasibility and safety, under academic and community deadlines.",
