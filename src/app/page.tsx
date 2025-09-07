@@ -100,7 +100,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col">
             <h1 className="text-4xl font-bold">Hi, I&apos;m Sun 👋🏾</h1>
-            <h4 className="text-md font-bold">Full Stack Software Engineer residing in Richmond, VA</h4>
+            <h4 className="text-md font-bold">Product Manager residing in Richmond, VA</h4>
           </div>
         </div>
         <div className="flex gap-4 items-center">
@@ -129,7 +129,7 @@ export default function Home() {
         <section id="intro-section" ref={introRef} className="w-full space-y-8">
           <div className="prose max-w-none">
             <p className="text-lg">
-              I&apos;m a Full Stack Software Engineer specializing in JavaScript, TypeScript, Python/Flask, AI (Agents, Machine Learning, LLMs), React, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over two years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
+              I&apos;m a Product Manager specializing in JavaScript, TypeScript, Python/Flask, AI (Agents, Machine Learning, LLMs), React, Next.js, Express, PostgreSQL, and Docker, with a strong focus on accessible design, seamless user experiences, and sound documentation. With over 10 years of experience, I&apos;ve built applications across museum tech, civic tech, Web3, and AI-driven recommendation systems, leveraging cloud architecture (AWS, Supabase, Firebase), containerization, and decentralized technologies. My recent work includes a museum software platform, a map that streamlines access to millions of dollars for Energy Grants for Tribal Nations and other disenfranchised communities, and an AI-powered art recommendation system, all designed to enhance user engagement and community impact. Currently, I&apos;m exploring DevOps, cloud architecture, and AI-powered tools, always pushing the boundaries of what technology can do for people.
             </p>
           </div>
         </section>
